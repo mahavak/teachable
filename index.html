@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teachable - Maxwell's Talent-Plus Projects</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/auth-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -201,6 +203,12 @@
             transform: translateY(-3px);
         }
 
+        .header-top {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 2rem;
+        }
+
         footer {
             text-align: center;
             color: white;
@@ -230,6 +238,25 @@
 <body>
     <div class="container">
         <header>
+            <div class="header-top">
+                <div class="auth-buttons">
+                    <button class="auth-btn" onclick="authManager.showAuthModal('signin')">Sign In</button>
+                    <button class="auth-btn primary" onclick="authManager.showAuthModal('signup')">Sign Up</button>
+                </div>
+                <div class="user-profile">
+                    <img class="user-avatar" src="" alt="User Avatar">
+                    <div class="user-info">
+                        <div class="user-username">Loading...</div>
+                        <div class="user-stats-summary"></div>
+                    </div>
+                    <div class="user-menu">
+                        <button class="user-menu-btn" onclick="authManager.signOut()">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
             <h1>Teachable</h1>
             <p class="subtitle">Educational Projects Based on John C. Maxwell's<br>"Talent Is Never Enough"</p>
             <p class="author">Maximizing Your Potential Through the 13 Principles</p>
@@ -372,7 +399,14 @@
         </footer>
     </div>
 
-    <script>
+    <script type="module">
+        // Import authentication and dashboard modules
+        import authManager from './js/auth-manager.js';
+        import userDashboard from './js/dashboard.js';
+        
+        // Make authManager globally available
+        window.authManager = authManager;
+        
         // Add some interactive animations
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.project-card, .principle-item');
