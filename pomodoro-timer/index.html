@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talent-Plus Pomodoro Timer | Maxwell's 13 Principles</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Talent-Plus Pomodoro Timer</h1>
+            <p class="subtitle">Maximize your potential with John C. Maxwell's 13 Principles</p>
+        </header>
+
+        <main>
+            <div class="timer-section">
+                <div class="timer-display">
+                    <div class="time" id="timeDisplay">25:00</div>
+                    <div class="session-type" id="sessionType">Focus Session</div>
+                </div>
+
+                <div class="controls">
+                    <button id="startBtn" class="btn btn-primary">Start</button>
+                    <button id="pauseBtn" class="btn btn-secondary">Pause</button>
+                    <button id="resetBtn" class="btn btn-tertiary">Reset</button>
+                </div>
+
+                <div class="settings">
+                    <div class="setting-group">
+                        <label for="focusTime">Focus Time (minutes):</label>
+                        <input type="number" id="focusTime" min="1" max="60" value="25">
+                    </div>
+                    <div class="setting-group">
+                        <label for="breakTime">Break Time (minutes):</label>
+                        <input type="number" id="breakTime" min="1" max="30" value="5">
+                    </div>
+                </div>
+            </div>
+
+            <div class="principle-section">
+                <div class="principle-card" id="principleCard">
+                    <div class="principle-number" id="principleNumber">Principle 1</div>
+                    <h2 class="principle-title" id="principleTitle">Belief Lifts Your Talent</h2>
+                    <p class="principle-description" id="principleDescription">
+                        The foundation of achievement starts with believing in yourself and your abilities. 
+                        As Henry Ford said: "Whether you think you can or think you can't, you're right."
+                    </p>
+                    <div class="principle-quote" id="principleQuote">
+                        "The difference between what we do and what we are capable of doing would suffice to solve most of the world's problems." - Gandhi
+                    </div>
+                    <div class="principle-actions">
+                        <button id="prevPrinciple" class="btn btn-small">← Previous</button>
+                        <button id="nextPrinciple" class="btn btn-small">Next →</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h3>Today's Progress</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" id="completedSessions">0</span>
+                        <span class="stat-label">Completed Sessions</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalTime">0</span>
+                        <span class="stat-label">Minutes Focused</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="currentStreak">0</span>
+                        <span class="stat-label">Current Streak</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="teachability-section">
+                <h3>Teachability Self-Assessment</h3>
+                <p class="assessment-intro">From Maxwell's book: "Ask yourself, AM I REALLY TEACHABLE?"</p>
+                <div class="assessment-questions">
+                    <div class="question" data-question="1">
+                        <label>
+                            <input type="checkbox" class="question-checkbox">
+                            <span>Am I open to other people's ideas?</span>
+                        </label>
+                    </div>
+                    <div class="question" data-question="2">
+                        <label>
+                            <input type="checkbox" class="question-checkbox">
+                            <span>Do I listen more than I talk?</span>
+                        </label>
+                    </div>
+                    <div class="question" data-question="3">
+                        <label>
+                            <input type="checkbox" class="question-checkbox">
+                            <span>Am I open to changing my opinion based on new information?</span>
+                        </label>
+                    </div>
+                    <div class="question" data-question="4">
+                        <label>
+                            <input type="checkbox" class="question-checkbox">
+                            <span>Do I readily admit when I am wrong?</span>
+                        </label>
+                    </div>
+                    <div class="question" data-question="5">
+                        <label>
+                            <input type="checkbox" class="question-checkbox">
+                            <span>Do I observe before acting on a situation?</span>
+                        </label>
+                    </div>
+                    <div class="question" data-question="6">
+                        <label>
+                            <input type="checkbox" class="question-checkbox">
+                            <span>Do I ask questions?</span>
+                        </label>
+                    </div>
+                    <div class="question" data-question="7">
+                        <label>
+                            <input type="checkbox" class="question-checkbox">
+                            <span>Am I willing to ask a question that will expose my ignorance?</span>
+                        </label>
+                    </div>
+                    <div class="question" data-question="8">
+                        <label>
+                            <input type="checkbox" class="question-checkbox">
+                            <span>Am I open to doing things in a way I haven't done before?</span>
+                        </label>
+                    </div>
+                    <div class="question" data-question="9">
+                        <label>
+                            <input type="checkbox" class="question-checkbox">
+                            <span>Am I willing to ask for directions?</span>
+                        </label>
+                    </div>
+                    <div class="question" data-question="10">
+                        <label>
+                            <input type="checkbox" class="question-checkbox">
+                            <span>Do I act defensive when criticized, or do I listen openly for the truth?</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="assessment-result" id="assessmentResult"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Based on "Talent Is Never Enough" by John C. Maxwell</p>
+            <p class="maxwell-quote">"Everything we know we learned from someone else!"</p>
+        </footer>
+    </div>
+
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <h3 id="notificationTitle">Session Complete!</h3>
+            <p id="notificationMessage">Great work! Time for a break.</p>
+            <button id="notificationClose" class="btn btn-primary">Continue</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
