@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachable - Maxwell's Talent-Plus Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 4rem;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .author {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .quote {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .quote blockquote {
+            font-size: 1.3rem;
+            font-style: italic;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        }
+
+        .project-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #e74c3c;
+        }
+
+        .btn-secondary:hover {
+            background: #c0392b;
+        }
+
+        .principles-preview {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .principles-preview h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .principle-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .principle-item:hover {
+            background: #ecf0f1;
+            transform: translateX(5px);
+        }
+
+        .principle-number {
+            color: #3498db;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .principle-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0.5rem 0;
+        }
+
+        .github-link {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .github-btn {
+            background: #333;
+            color: white;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .github-btn:hover {
+            background: #555;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 2rem 0;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .projects {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-card {
+                padding: 2rem;
+            }
+            
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Teachable</h1>
+            <p class="subtitle">Educational Projects Based on John C. Maxwell's<br>"Talent Is Never Enough"</p>
+            <p class="author">Maximizing Your Potential Through the 13 Principles</p>
+            
+            <div class="quote">
+                <blockquote>
+                    "The choices people make—not merely the skills they inherit—propel them onto greatness."
+                    <br><br>
+                    <strong>- John C. Maxwell</strong>
+                </blockquote>
+            </div>
+        </header>
+
+        <main>
+            <section class="projects">
+                <div class="project-card">
+                    <div class="project-icon">🍅</div>
+                    <h2>Talent-Plus Pomodoro Timer</h2>
+                    <p>A productivity timer that integrates all 13 principles from Maxwell's book. Learn a new principle with each focus session while maximizing your productivity.</p>
+                    <a href="pomodoro-timer/index.html" class="btn">Start Timer</a>
+                    <br>
+                    <small>✨ Features: Progress tracking, teachability assessment, principle rotation</small>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🌐</div>
+                    <h2>Principles Website</h2>
+                    <p>Comprehensive website showcasing all 13 principles with detailed explanations, practical applications, and actionable insights for personal growth.</p>
+                    <a href="talent-website/index.html" class="btn btn-secondary">Explore Principles</a>
+                    <br>
+                    <small>📚 Includes: Detailed chapters, quotes, and implementation guides</small>
+                </div>
+            </section>
+
+            <section class="principles-preview">
+                <h2>The 13 Talent-Plus Principles</h2>
+                <div class="principles-grid">
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 1</div>
+                        <div class="principle-title">Belief Lifts Your Talent</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 2</div>
+                        <div class="principle-title">Passion Energizes Your Talent</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 3</div>
+                        <div class="principle-title">Initiative Activates Your Talent</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 4</div>
+                        <div class="principle-title">Focus Directs Your Talent</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 5</div>
+                        <div class="principle-title">Preparation Positions Your Talent</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 6</div>
+                        <div class="principle-title">Practice Sharpens Your Talent</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 7</div>
+                        <div class="principle-title">Perseverance Sustains Your Talent</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 8</div>
+                        <div class="principle-title">Courage Tests Your Talent</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 9</div>
+                        <div class="principle-title">Teachability Expands Your Talent</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 10</div>
+                        <div class="principle-title">Character Protects Your Talent</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 11</div>
+                        <div class="principle-title">Relationships Influence Your Talent</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 12</div>
+                        <div class="principle-title">Responsibility Strengthens Your Talent</div>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-number">PRINCIPLE 13</div>
+                        <div class="principle-title">Teamwork Multiplies Your Talent</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="github-link">
+                <a href="https://github.com/mahavak/teachable" class="github-btn" target="_blank">
+                    <span>⭐</span>
+                    View Source Code on GitHub
+                </a>
+            </div>
+        </main>
+
+        <footer>
+            <p>Based on "Talent Is Never Enough" by John C. Maxwell</p>
+            <p><em>"Everything we know we learned from someone else!"</em></p>
+        </footer>
+    </div>
+
+    <script>
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.project-card, .principle-item');
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
