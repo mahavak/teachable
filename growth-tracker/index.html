@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxwell's 13 Principles - Personal Growth Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <h2>Growth Tracker</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-view="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-view="daily-tracking">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Daily Tracking</span>
+                </a>
+                <a href="#" class="nav-item" data-view="weekly-reflection">
+                    <i class="fas fa-book-open"></i>
+                    <span>Weekly Reflection</span>
+                </a>
+                <a href="#" class="nav-item" data-view="goals">
+                    <i class="fas fa-bullseye"></i>
+                    <span>Goals & Planning</span>
+                </a>
+                <a href="#" class="nav-item" data-view="analytics">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item" data-view="calendar">
+                    <i class="fas fa-calendar"></i>
+                    <span>Calendar View</span>
+                </a>
+                <a href="#" class="nav-item" data-view="export">
+                    <i class="fas fa-download"></i>
+                    <span>Export Data</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard View -->
+            <section id="dashboard" class="view-section active">
+                <header class="section-header">
+                    <h1>Personal Growth Dashboard</h1>
+                    <p class="date-display"></p>
+                </header>
+
+                <div class="dashboard-grid">
+                    <!-- Streak Overview -->
+                    <div class="card streak-card">
+                        <h3><i class="fas fa-fire"></i> Current Streaks</h3>
+                        <div class="streak-container">
+                            <div class="overall-streak">
+                                <span class="streak-number">0</span>
+                                <span class="streak-label">Day Streak</span>
+                            </div>
+                            <div class="principle-streaks"></div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="card stats-card">
+                        <h3><i class="fas fa-chart-pie"></i> Quick Stats</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-value" id="total-days">0</span>
+                                <span class="stat-label">Total Days</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="completion-rate">0%</span>
+                                <span class="stat-label">Completion Rate</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="active-goals">0</span>
+                                <span class="stat-label">Active Goals</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="card activity-card">
+                        <h3><i class="fas fa-history"></i> Recent Activity</h3>
+                        <div class="activity-feed"></div>
+                    </div>
+
+                    <!-- Progress Chart -->
+                    <div class="card chart-card">
+                        <h3><i class="fas fa-chart-line"></i> Growth Trend</h3>
+                        <canvas id="progressChart"></canvas>
+                    </div>
+
+                    <!-- Principle Overview -->
+                    <div class="card principles-overview">
+                        <h3><i class="fas fa-list-check"></i> Principles Overview</h3>
+                        <div class="principles-grid"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Daily Tracking View -->
+            <section id="daily-tracking" class="view-section">
+                <header class="section-header">
+                    <h1>Daily Principle Tracking</h1>
+                    <div class="date-selector">
+                        <button class="btn-date" id="prevDay"><i class="fas fa-chevron-left"></i></button>
+                        <input type="date" id="trackingDate" class="date-input">
+                        <button class="btn-date" id="nextDay"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </header>
+
+                <div class="tracking-container">
+                    <div class="principles-checklist" id="principlesChecklist"></div>
+                    <div class="daily-notes">
+                        <h3>Daily Reflection</h3>
+                        <textarea id="dailyNotes" placeholder="What did you learn today? What can you improve tomorrow?"></textarea>
+                        <button class="btn-primary" id="saveDailyTracking">Save Daily Progress</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weekly Reflection View -->
+            <section id="weekly-reflection" class="view-section">
+                <header class="section-header">
+                    <h1>Weekly Reflection</h1>
+                    <div class="week-selector">
+                        <button class="btn-date" id="prevWeek"><i class="fas fa-chevron-left"></i></button>
+                        <span class="week-display"></span>
+                        <button class="btn-date" id="nextWeek"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </header>
+
+                <div class="reflection-container">
+                    <div class="reflection-prompts">
+                        <h3>Reflection Questions</h3>
+                        <div class="prompt-list"></div>
+                    </div>
+                    <div class="week-summary">
+                        <h3>Week Summary</h3>
+                        <div class="summary-stats"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Goals & Planning View -->
+            <section id="goals" class="view-section">
+                <header class="section-header">
+                    <h1>Goals & Planning</h1>
+                    <button class="btn-primary" id="addNewGoal">
+                        <i class="fas fa-plus"></i> New Goal
+                    </button>
+                </header>
+
+                <div class="goals-container">
+                    <div class="active-goals">
+                        <h3>Active Goals</h3>
+                        <div class="goals-list" id="activeGoalsList"></div>
+                    </div>
+                    <div class="completed-goals">
+                        <h3>Completed Goals</h3>
+                        <div class="goals-list" id="completedGoalsList"></div>
+                    </div>
+                </div>
+
+                <!-- Goal Creation Modal -->
+                <div class="modal" id="goalModal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Create SMART Goal</h2>
+                        <form id="goalForm">
+                            <div class="form-group">
+                                <label>Goal Title</label>
+                                <input type="text" id="goalTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Related Principle</label>
+                                <select id="goalPrinciple" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Specific (What exactly will you accomplish?)</label>
+                                <textarea id="goalSpecific" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Measurable (How will you measure progress?)</label>
+                                <textarea id="goalMeasurable" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Achievable (Is this goal realistic?)</label>
+                                <textarea id="goalAchievable" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Relevant (Why is this important?)</label>
+                                <textarea id="goalRelevant" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Time-bound (Target Date)</label>
+                                <input type="date" id="goalDeadline" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Milestones (comma-separated)</label>
+                                <input type="text" id="goalMilestones" placeholder="e.g., Read 2 books, Complete course">
+                            </div>
+                            <button type="submit" class="btn-primary">Create Goal</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics View -->
+            <section id="analytics" class="view-section">
+                <header class="section-header">
+                    <h1>Progress Analytics</h1>
+                    <div class="time-filter">
+                        <button class="filter-btn active" data-period="week">Week</button>
+                        <button class="filter-btn" data-period="month">Month</button>
+                        <button class="filter-btn" data-period="year">Year</button>
+                        <button class="filter-btn" data-period="all">All Time</button>
+                    </div>
+                </header>
+
+                <div class="analytics-grid">
+                    <div class="card">
+                        <h3>Principle Performance</h3>
+                        <canvas id="principleChart"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Consistency Heatmap</h3>
+                        <div id="heatmapContainer"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Growth Insights</h3>
+                        <div class="insights-list"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Top Performing Principles</h3>
+                        <div class="top-principles"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Calendar View -->
+            <section id="calendar" class="view-section">
+                <header class="section-header">
+                    <h1>Calendar View</h1>
+                    <div class="calendar-controls">
+                        <button id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                        <h2 id="currentMonth"></h2>
+                        <button id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </header>
+
+                <div class="calendar-container">
+                    <div class="calendar-grid" id="calendarGrid"></div>
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #4CAF50;"></span>
+                            <span>Complete (90-100%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #FFC107;"></span>
+                            <span>Partial (50-89%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #FF5252;"></span>
+                            <span>Low (0-49%)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Export View -->
+            <section id="export" class="view-section">
+                <header class="section-header">
+                    <h1>Export Your Data</h1>
+                </header>
+
+                <div class="export-container">
+                    <div class="card export-options">
+                        <h3>Export Options</h3>
+                        <div class="export-format">
+                            <label>
+                                <input type="radio" name="format" value="pdf" checked>
+                                <span>PDF Report</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="format" value="csv">
+                                <span>CSV Data</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="format" value="json">
+                                <span>JSON Backup</span>
+                            </label>
+                        </div>
+                        <div class="export-range">
+                            <h4>Date Range</h4>
+                            <input type="date" id="exportStart">
+                            <span>to</span>
+                            <input type="date" id="exportEnd">
+                        </div>
+                        <button class="btn-primary" id="exportData">
+                            <i class="fas fa-download"></i> Export Data
+                        </button>
+                    </div>
+
+                    <div class="card export-preview">
+                        <h3>Preview</h3>
+                        <div id="exportPreview"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

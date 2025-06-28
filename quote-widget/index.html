@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxwell Quote Widget | Daily Inspiration</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💎 Maxwell Quote Widget</h1>
+            <p class="subtitle">Daily wisdom from John C. Maxwell's "Talent Is Never Enough"</p>
+            <nav class="breadcrumb">
+                <a href="../index.html">← Back to Teachable</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Quote Display Section -->
+            <section class="quote-display">
+                <div class="quote-card" id="mainQuoteCard">
+                    <div class="principle-indicator" id="principleIndicator">
+                        <span class="principle-icon">💫</span>
+                        <span class="principle-text">Principle 1: Belief Lifts Your Talent</span>
+                    </div>
+                    
+                    <div class="quote-content">
+                        <div class="quote-text" id="quoteText">
+                            "Whether you think you can or think you can't, you're right."
+                        </div>
+                        <div class="quote-author" id="quoteAuthor">- Henry Ford</div>
+                        <div class="quote-context" id="quoteContext">
+                            Belief in yourself is the foundation of all achievement. Your thoughts shape your reality.
+                        </div>
+                    </div>
+                    
+                    <div class="quote-actions">
+                        <button class="action-btn" id="newQuoteBtn" title="Get New Quote">
+                            <i class="fas fa-refresh"></i> New Quote
+                        </button>
+                        <button class="action-btn" id="favoriteBtn" title="Add to Favorites">
+                            <i class="far fa-heart"></i> Favorite
+                        </button>
+                        <button class="action-btn" id="shareBtn" title="Share Quote">
+                            <i class="fas fa-share"></i> Share
+                        </button>
+                        <button class="action-btn" id="copyBtn" title="Copy Quote">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Widget Customization -->
+            <section class="widget-controls">
+                <div class="control-card">
+                    <h3><i class="fas fa-cog"></i> Customize Your Experience</h3>
+                    
+                    <div class="control-group">
+                        <label for="principleFilter">Filter by Principle:</label>
+                        <select id="principleFilter">
+                            <option value="all">All Principles</option>
+                            <option value="1">Belief Lifts Your Talent</option>
+                            <option value="2">Passion Energizes Your Talent</option>
+                            <option value="3">Initiative Activates Your Talent</option>
+                            <option value="4">Focus Directs Your Talent</option>
+                            <option value="5">Preparation Positions Your Talent</option>
+                            <option value="6">Practice Sharpens Your Talent</option>
+                            <option value="7">Perseverance Sustains Your Talent</option>
+                            <option value="8">Courage Tests Your Talent</option>
+                            <option value="9">Teachability Expands Your Talent</option>
+                            <option value="10">Character Protects Your Talent</option>
+                            <option value="11">Relationships Influence Your Talent</option>
+                            <option value="12">Responsibility Strengthens Your Talent</option>
+                            <option value="13">Teamwork Multiplies Your Talent</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="autoRotate">Auto-rotate quotes:</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="autoRotate" checked>
+                            <label for="autoRotate" class="switch"></label>
+                        </div>
+                        <span class="control-info">Every 30 seconds</span>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="themeSelect">Theme:</label>
+                        <select id="themeSelect">
+                            <option value="default">Classic Blue</option>
+                            <option value="warm">Warm Sunset</option>
+                            <option value="nature">Nature Green</option>
+                            <option value="elegant">Elegant Purple</option>
+                            <option value="dark">Dark Mode</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="fontSize">Font Size:</label>
+                        <input type="range" id="fontSize" min="14" max="24" value="18">
+                        <span id="fontSizeValue">18px</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Daily Quote History -->
+            <section class="quote-history">
+                <div class="history-card">
+                    <h3><i class="fas fa-history"></i> Quote History</h3>
+                    <div class="history-list" id="historyList">
+                        <!-- Dynamic content -->
+                    </div>
+                    <button class="clear-history-btn" id="clearHistoryBtn">
+                        <i class="fas fa-trash"></i> Clear History
+                    </button>
+                </div>
+            </section>
+
+            <!-- Favorites Collection -->
+            <section class="favorites">
+                <div class="favorites-card">
+                    <h3><i class="fas fa-star"></i> Favorite Quotes</h3>
+                    <div class="favorites-grid" id="favoritesGrid">
+                        <div class="no-favorites" id="noFavorites">
+                            <i class="fas fa-heart"></i>
+                            <p>No favorite quotes yet. Click the heart icon to save quotes you love!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Widget Embed Code -->
+            <section class="embed-widget">
+                <div class="embed-card">
+                    <h3><i class="fas fa-code"></i> Embed This Widget</h3>
+                    <p>Add this quote widget to your website or blog:</p>
+                    <textarea id="embedCode" readonly></textarea>
+                    <button class="copy-embed-btn" id="copyEmbedBtn">
+                        <i class="fas fa-copy"></i> Copy Embed Code
+                    </button>
+                </div>
+            </section>
+
+            <!-- Statistics -->
+            <section class="quote-stats">
+                <div class="stats-card">
+                    <h3><i class="fas fa-chart-bar"></i> Your Quote Journey</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalViewed">0</div>
+                            <div class="stat-label">Quotes Viewed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="favoriteCount">0</div>
+                            <div class="stat-label">Favorites Saved</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="shareCount">0</div>
+                            <div class="stat-label">Quotes Shared</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="streakDays">0</div>
+                            <div class="stat-label">Day Streak</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Share Modal -->
+    <div class="modal" id="shareModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Share This Quote</h3>
+                <button class="close-btn" id="closeShareModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="share-options">
+                    <button class="share-option" id="shareTwitter">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </button>
+                    <button class="share-option" id="shareLinkedIn">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </button>
+                    <button class="share-option" id="shareFacebook">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </button>
+                    <button class="share-option" id="shareEmail">
+                        <i class="fas fa-envelope"></i> Email
+                    </button>
+                </div>
+                <div class="share-text">
+                    <label for="shareTextArea">Custom Message:</label>
+                    <textarea id="shareTextArea" placeholder="Add your own message..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="toast-icon"></i>
+            <span class="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

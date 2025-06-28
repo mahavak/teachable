@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Talent-Plus Assessment | Maxwell's 13 Principles</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Complete Talent-Plus Assessment</h1>
+            <p class="subtitle">Discover your strengths across John C. Maxwell's 13 Principles</p>
+            <nav class="breadcrumb">
+                <a href="../index.html">← Back to Teachable</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Welcome Screen -->
+            <section id="welcome" class="screen active">
+                <div class="welcome-content">
+                    <h2>Assess Your Talent-Plus Potential</h2>
+                    <p>This comprehensive assessment evaluates your current strength in all 13 principles from John C. Maxwell's "Talent Is Never Enough."</p>
+                    
+                    <div class="assessment-info">
+                        <div class="info-item">
+                            <span class="number">65</span>
+                            <span class="label">Questions</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="number">15</span>
+                            <span class="label">Minutes</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="number">13</span>
+                            <span class="label">Principles</span>
+                        </div>
+                    </div>
+
+                    <div class="what-you-get">
+                        <h3>What You'll Get:</h3>
+                        <ul>
+                            <li>✅ Personalized strength profile across all 13 principles</li>
+                            <li>📊 Visual dashboard with detailed scoring</li>
+                            <li>🎯 Specific improvement recommendations</li>
+                            <li>📋 Custom action plan for growth</li>
+                            <li>💾 Downloadable results for future reference</li>
+                        </ul>
+                    </div>
+
+                    <button id="startAssessment" class="btn btn-primary">Start Assessment</button>
+                </div>
+            </section>
+
+            <!-- Assessment Questions -->
+            <section id="assessment" class="screen">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                    <span class="progress-text" id="progressText">Question 1 of 65</span>
+                </div>
+
+                <div class="question-container">
+                    <div class="principle-indicator" id="principleIndicator">
+                        Principle 1: Belief Lifts Your Talent
+                    </div>
+                    
+                    <div class="question-card">
+                        <h3 id="questionText">I believe in my ability to achieve my goals despite obstacles.</h3>
+                        
+                        <div class="answer-options">
+                            <label class="answer-option">
+                                <input type="radio" name="answer" value="1">
+                                <span class="option-text">Strongly Disagree</span>
+                            </label>
+                            <label class="answer-option">
+                                <input type="radio" name="answer" value="2">
+                                <span class="option-text">Disagree</span>
+                            </label>
+                            <label class="answer-option">
+                                <input type="radio" name="answer" value="3">
+                                <span class="option-text">Neutral</span>
+                            </label>
+                            <label class="answer-option">
+                                <input type="radio" name="answer" value="4">
+                                <span class="option-text">Agree</span>
+                            </label>
+                            <label class="answer-option">
+                                <input type="radio" name="answer" value="5">
+                                <span class="option-text">Strongly Agree</span>
+                            </label>
+                        </div>
+
+                        <div class="question-navigation">
+                            <button id="prevQuestion" class="btn btn-secondary" disabled>Previous</button>
+                            <button id="nextQuestion" class="btn btn-primary" disabled>Next</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Screen -->
+            <section id="results" class="screen">
+                <div class="results-header">
+                    <h2>Your Talent-Plus Assessment Results</h2>
+                    <p class="results-intro">Here's your personalized strength profile across Maxwell's 13 principles:</p>
+                </div>
+
+                <div class="overall-score">
+                    <div class="score-circle">
+                        <div class="score-number" id="overallScore">85</div>
+                        <div class="score-label">Overall Score</div>
+                    </div>
+                    <div class="score-interpretation" id="scoreInterpretation">
+                        <h3>Talent-Plus Level: Advanced</h3>
+                        <p>You demonstrate strong capabilities across most principles with excellent potential for leadership and achievement.</p>
+                    </div>
+                </div>
+
+                <div class="principle-scores" id="principleScores">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+
+                <div class="recommendations" id="recommendations">
+                    <h3>🎯 Your Personalized Action Plan</h3>
+                    <div class="recommendation-categories">
+                        <div class="rec-category">
+                            <h4>💪 Your Strengths (Leverage These)</h4>
+                            <ul id="strengths"></ul>
+                        </div>
+                        <div class="rec-category">
+                            <h4>🚀 Growth Opportunities (Focus Here)</h4>
+                            <ul id="growthAreas"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="next-steps">
+                    <h3>📋 Recommended Next Steps</h3>
+                    <div class="step-cards" id="nextSteps">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button id="downloadResults" class="btn btn-primary">📥 Download Results</button>
+                    <button id="retakeAssessment" class="btn btn-secondary">🔄 Retake Assessment</button>
+                    <button id="exploreTools" class="btn btn-tertiary">🛠️ Explore Growth Tools</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
