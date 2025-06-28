@@ -1,501 +1,384 @@
-// Maxwell Quote Widget - Comprehensive JavaScript Implementation
+// Maxwell Quote Widget - Enhanced Implementation
 // Based on "Talent Is Never Enough" principles by John C. Maxwell
 
 (function() {
     'use strict';
 
-    // Extensive Quote Database
+    // Comprehensive Quote Database with Maxwell's 13 Principles
     const quotesDatabase = {
         belief: [
-            { text: "Belief lifts your talent to a whole new level.", author: "John C. Maxwell" },
-            { text: "The first person you have to inspire every day is yourself.", author: "John C. Maxwell" },
-            { text: "When you believe you can—you can!", author: "John C. Maxwell" },
-            { text: "Your attitude determines your altitude.", author: "Zig Ziglar" },
-            { text: "Whether you think you can or think you can't, you're right.", author: "Henry Ford" },
-            { text: "Believe in yourself! Have faith in your abilities!", author: "Norman Vincent Peale" },
-            { text: "The only limit to our realization of tomorrow is our doubts of today.", author: "Franklin D. Roosevelt" },
-            { text: "Belief creates the actual fact.", author: "William James" },
-            { text: "Champions aren't made in gyms. Champions are made from something they have deep inside them - a desire, a dream, a vision.", author: "Muhammad Ali" },
-            { text: "You have to believe in yourself when no one else does.", author: "Serena Williams" },
-            { text: "Self-confidence is the first requisite to great undertakings.", author: "Samuel Johnson" },
-            { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
-            { text: "The moment you doubt whether you can fly, you cease forever to be able to do it.", author: "J.M. Barrie" },
-            { text: "Trust yourself. You know more than you think you do.", author: "Benjamin Spock" },
-            { text: "To be a great champion you must believe you are the best.", author: "Muhammad Ali" }
-        ],
-        initiative: [
-            { text: "Initiative activates your talent.", author: "John C. Maxwell" },
-            { text: "You don't have to be great to start, but you have to start to be great.", author: "Zig Ziglar" },
-            { text: "The secret of getting ahead is getting started.", author: "Mark Twain" },
-            { text: "Initiative is doing the right thing without being told.", author: "Victor Hugo" },
-            { text: "Success seems to be connected with action. Successful people keep moving.", author: "Conrad Hilton" },
-            { text: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
-            { text: "Don't wait for opportunity. Create it.", author: "George Bernard Shaw" },
-            { text: "Initiative is the ability to work without anyone telling you what to do.", author: "Elbert Hubbard" },
-            { text: "You miss 100% of the shots you don't take.", author: "Wayne Gretzky" },
-            { text: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb" },
-            { text: "Action is the foundational key to all success.", author: "Pablo Picasso" },
-            { text: "Ideas without action are worthless.", author: "Helen Keller" },
-            { text: "Initiative is to success what a lighted match is to a candle.", author: "Orlando A. Battista" },
-            { text: "The distance between your dreams and reality is called action.", author: "Unknown" },
-            { text: "Stop waiting for things to happen. Go out and make them happen.", author: "Unknown" }
+            { text: "Belief lifts your talent to a whole new level.", author: "John C. Maxwell", context: "Your mindset determines your success. When you believe in yourself, you unlock your potential." },
+            { text: "Whether you think you can or think you can't, you're right.", author: "Henry Ford", context: "Belief in yourself is the foundation of all achievement. Your thoughts shape your reality." },
+            { text: "The first person you have to inspire every day is yourself.", author: "John C. Maxwell", context: "Self-belief starts with daily inspiration and positive self-talk." },
+            { text: "Your attitude determines your altitude.", author: "Zig Ziglar", context: "A positive belief system elevates your performance and opportunities." },
+            { text: "Believe in yourself! Have faith in your abilities!", author: "Norman Vincent Peale", context: "Self-confidence is the first step toward achieving your goals." }
         ],
         passion: [
-            { text: "Passion energizes your talent.", author: "John C. Maxwell" },
-            { text: "Nothing great in the world has been accomplished without passion.", author: "Georg Wilhelm Friedrich Hegel" },
-            { text: "Passion is energy. Feel the power that comes from focusing on what excites you.", author: "Oprah Winfrey" },
-            { text: "If you feel like there's something out there that you're supposed to be doing, if you have a passion for it, then stop wishing and just do it.", author: "Wanda Sykes" },
-            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
-            { text: "Passion is the genesis of genius.", author: "Tony Robbins" },
-            { text: "Follow your passion, and success will follow you.", author: "Terri Guillemets" },
-            { text: "When you are enthusiastic about what you do, you feel this positive energy.", author: "Paulo Coelho" },
-            { text: "Passion is oxygen of the soul.", author: "Bill Butler" },
-            { text: "Without passion, you don't have energy; without energy, you have nothing.", author: "Warren Buffett" },
-            { text: "Passion will move men beyond themselves, beyond their shortcomings, beyond their failures.", author: "Joseph Campbell" },
-            { text: "Light yourself on fire with passion and people will come from miles to watch you burn.", author: "John Wesley" },
-            { text: "If you can't figure out your purpose, figure out your passion.", author: "Bishop T.D. Jakes" },
-            { text: "Chase your passion, not your pension.", author: "Denis Waitley" },
-            { text: "Passion is the difference between having a job and having a career.", author: "Unknown" }
+            { text: "Passion energizes your talent.", author: "John C. Maxwell", context: "When you love what you do, you naturally excel at it." },
+            { text: "Nothing great in the world has been accomplished without passion.", author: "Georg Wilhelm Friedrich Hegel", context: "Passion fuels persistence and drives extraordinary results." },
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs", context: "Passion transforms work into purpose and creates lasting fulfillment." },
+            { text: "Passion is the genesis of genius.", author: "Tony Robbins", context: "Intense interest and enthusiasm unlock creative potential." },
+            { text: "Without passion, you don't have energy; without energy, you have nothing.", author: "Warren Buffett", context: "Passion provides the energy needed for sustained effort and success." }
+        ],
+        initiative: [
+            { text: "Initiative activates your talent.", author: "John C. Maxwell", context: "Taking the first step transforms potential into action." },
+            { text: "The secret of getting ahead is getting started.", author: "Mark Twain", context: "Initiative means starting before you feel ready." },
+            { text: "Don't wait for opportunity. Create it.", author: "George Bernard Shaw", context: "Proactive people make their own opportunities." },
+            { text: "You miss 100% of the shots you don't take.", author: "Wayne Gretzky", context: "Initiative requires taking action despite uncertainty." },
+            { text: "Action is the foundational key to all success.", author: "Pablo Picasso", context: "Success comes from doing, not just thinking or planning." }
         ],
         focus: [
-            { text: "Focus directs your talent.", author: "John C. Maxwell" },
-            { text: "The successful warrior is the average man with laser-like focus.", author: "Bruce Lee" },
-            { text: "Concentrate all your thoughts upon the work at hand.", author: "Alexander Graham Bell" },
-            { text: "Where focus goes, energy flows and results show.", author: "T. Harv Eker" },
-            { text: "The key to success is to focus on goals, not obstacles.", author: "Unknown" },
-            { text: "Focus on being productive instead of busy.", author: "Tim Ferriss" },
-            { text: "Starve your distractions, feed your focus.", author: "Unknown" },
-            { text: "You can't depend on your eyes when your imagination is out of focus.", author: "Mark Twain" },
-            { text: "The main thing is to keep the main thing the main thing.", author: "Stephen Covey" },
-            { text: "Most people have no idea of the giant capacity we can immediately command when we focus all of our resources on mastering a single area of our lives.", author: "Tony Robbins" },
-            { text: "It is during our darkest moments that we must focus to see the light.", author: "Aristotle" },
-            { text: "Always remember, your focus determines your reality.", author: "George Lucas" },
-            { text: "Focus is a matter of deciding what things you're not going to do.", author: "John Carmack" },
-            { text: "My success, part of it certainly, is that I have focused in on a few things.", author: "Bill Gates" },
-            { text: "If you want to be truly successful invest in yourself to get the knowledge you need to find your unique factor.", author: "Sydney Madwed" }
+            { text: "Focus directs your talent.", author: "John C. Maxwell", context: "Concentrated effort produces extraordinary results." },
+            { text: "The successful warrior is the average man with laser-like focus.", author: "Bruce Lee", context: "Focus transforms ordinary ability into exceptional performance." },
+            { text: "Where focus goes, energy flows and results show.", author: "T. Harv Eker", context: "Attention directed produces measurable outcomes." },
+            { text: "The main thing is to keep the main thing the main thing.", author: "Stephen Covey", context: "Focus means saying no to good things to say yes to great things." },
+            { text: "Focus is a matter of deciding what things you're not going to do.", author: "John Carmack", context: "Focus requires elimination as much as concentration." }
         ],
         preparation: [
-            { text: "Preparation positions your talent.", author: "John C. Maxwell" },
-            { text: "By failing to prepare, you are preparing to fail.", author: "Benjamin Franklin" },
-            { text: "Before anything else, preparation is the key to success.", author: "Alexander Graham Bell" },
-            { text: "Give me six hours to chop down a tree and I will spend the first four sharpening the axe.", author: "Abraham Lincoln" },
-            { text: "The will to win is important, but the will to prepare is vital.", author: "Joe Paterno" },
-            { text: "Success depends upon previous preparation, and without such preparation there is sure to be failure.", author: "Confucius" },
-            { text: "Champions do not become champions when they win the event, but in the hours, weeks, months and years they spend preparing for it.", author: "Michael Jordan" },
-            { text: "Spectacular achievement is always preceded by unspectacular preparation.", author: "Robert H. Schuller" },
-            { text: "I will prepare and some day my chance will come.", author: "Abraham Lincoln" },
-            { text: "The best preparation for tomorrow is doing your best today.", author: "H. Jackson Brown Jr." },
-            { text: "Luck is what happens when preparation meets opportunity.", author: "Seneca" },
-            { text: "Preparation is the key to success.", author: "Alexander Graham Bell" },
-            { text: "Proper preparation prevents poor performance.", author: "Stephen Keague" },
-            { text: "Today's preparation determines tomorrow's achievement.", author: "Unknown" },
-            { text: "The more you sweat in practice, the less you bleed in battle.", author: "Navy SEALs" }
+            { text: "Preparation positions your talent.", author: "John C. Maxwell", context: "Success is where preparation meets opportunity." },
+            { text: "By failing to prepare, you are preparing to fail.", author: "Benjamin Franklin", context: "Preparation is the foundation of confident performance." },
+            { text: "Give me six hours to chop down a tree and I will spend the first four sharpening the axe.", author: "Abraham Lincoln", context: "Preparation multiplies the effectiveness of effort." },
+            { text: "The will to win is important, but the will to prepare is vital.", author: "Joe Paterno", context: "Preparation determines performance under pressure." },
+            { text: "Champions do not become champions when they win the event, but in the hours, weeks, months and years they spend preparing for it.", author: "Michael Jordan", context: "Excellence is built through consistent preparation." }
         ],
         practice: [
-            { text: "Practice sharpens your talent.", author: "John C. Maxwell" },
-            { text: "Practice isn't the thing you do once you're good. It's the thing you do that makes you good.", author: "Malcolm Gladwell" },
-            { text: "Excellence is not a singular act but a habit. You are what you repeatedly do.", author: "Aristotle" },
-            { text: "The expert in anything was once a beginner.", author: "Helen Hayes" },
-            { text: "Practice makes perfect. After a long time of practicing, our work will become natural, skillful, swift, and steady.", author: "Bruce Lee" },
-            { text: "Knowledge is of no value unless you put it into practice.", author: "Anton Chekhov" },
-            { text: "An ounce of practice is worth more than tons of preaching.", author: "Mahatma Gandhi" },
-            { text: "Champions keep playing until they get it right.", author: "Billie Jean King" },
-            { text: "We are what we repeatedly do. Excellence, then, is not an act, but a habit.", author: "Will Durant" },
-            { text: "The more you practice, the luckier you get.", author: "Gary Player" },
-            { text: "Practice is the best of all instructors.", author: "Publilius Syrus" },
-            { text: "Repetition is the mother of learning, the father of action, which makes it the architect of accomplishment.", author: "Zig Ziglar" },
-            { text: "Success is nothing more than a few simple disciplines, practiced every day.", author: "Jim Rohn" },
-            { text: "Practice puts brains in your muscles.", author: "Sam Snead" },
-            { text: "Every master was once a disaster.", author: "T. Harv Eker" }
+            { text: "Practice sharpens your talent.", author: "John C. Maxwell", context: "Deliberate practice turns good into great." },
+            { text: "Practice isn't the thing you do once you're good. It's the thing you do that makes you good.", author: "Malcolm Gladwell", context: "Practice precedes mastery, not the other way around." },
+            { text: "Excellence is not a singular act but a habit. You are what you repeatedly do.", author: "Aristotle", context: "Consistent practice creates lasting excellence." },
+            { text: "The expert in anything was once a beginner.", author: "Helen Hayes", context: "Everyone starts somewhere; practice bridges the gap." },
+            { text: "Success is nothing more than a few simple disciplines, practiced every day.", author: "Jim Rohn", context: "Small, consistent practices compound into major results." }
         ],
         perseverance: [
-            { text: "Perseverance sustains your talent.", author: "John C. Maxwell" },
-            { text: "It's not that I'm so smart, it's just that I stay with problems longer.", author: "Albert Einstein" },
-            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
-            { text: "The difference between a successful person and others is not a lack of strength, not a lack of knowledge, but rather a lack of will.", author: "Vince Lombardi" },
-            { text: "Many of life's failures are people who did not realize how close they were to success when they gave up.", author: "Thomas Edison" },
-            { text: "Fall seven times, stand up eight.", author: "Japanese Proverb" },
-            { text: "Champions keep going when they don't have anything left in their tank.", author: "Unknown" },
-            { text: "Perseverance is failing 19 times and succeeding the 20th.", author: "Julie Andrews" },
-            { text: "The man who moves a mountain begins by carrying away small stones.", author: "Confucius" },
-            { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
-            { text: "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.", author: "Thomas Edison" },
-            { text: "Through perseverance many people win success out of what seemed destined to be certain failure.", author: "Benjamin Disraeli" },
-            { text: "Perseverance is not a long race; it is many short races one after the other.", author: "Walter Elliot" },
-            { text: "The difference between the impossible and the possible lies in a person's determination.", author: "Tommy Lasorda" },
-            { text: "Winners never quit and quitters never win.", author: "Vince Lombardi" }
+            { text: "Perseverance sustains your talent.", author: "John C. Maxwell", context: "Persistence turns temporary defeat into ultimate victory." },
+            { text: "Many of life's failures are people who did not realize how close they were to success when they gave up.", author: "Thomas Edison", context: "Breakthrough often comes just after the point of giving up." },
+            { text: "Fall seven times, stand up eight.", author: "Japanese Proverb", context: "Resilience is getting up one more time than you fall down." },
+            { text: "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.", author: "Thomas Edison", context: "Perseverance is the difference between failure and success." },
+            { text: "Winners never quit and quitters never win.", author: "Vince Lombardi", context: "Persistence is the ultimate competitive advantage." }
         ],
         courage: [
-            { text: "Courage tests your talent.", author: "John C. Maxwell" },
-            { text: "Courage is not the absence of fear, but the triumph over it.", author: "Nelson Mandela" },
-            { text: "All our dreams can come true if we have the courage to pursue them.", author: "Walt Disney" },
-            { text: "It takes courage to grow up and become who you really are.", author: "E.E. Cummings" },
-            { text: "Courage is resistance to fear, mastery of fear - not absence of fear.", author: "Mark Twain" },
-            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
-            { text: "Have the courage to follow your heart and intuition.", author: "Steve Jobs" },
-            { text: "Courage doesn't always roar. Sometimes courage is the quiet voice at the end of the day saying, 'I will try again tomorrow.'", author: "Mary Anne Radmacher" },
-            { text: "You cannot swim for new horizons until you have courage to lose sight of the shore.", author: "William Faulkner" },
-            { text: "The secret to happiness is freedom... And the secret to freedom is courage.", author: "Thucydides" },
-            { text: "Courage is the most important of all the virtues because without courage, you can't practice any other virtue consistently.", author: "Maya Angelou" },
-            { text: "Life shrinks or expands in proportion to one's courage.", author: "Anais Nin" },
-            { text: "Courage is being scared to death... and saddling up anyway.", author: "John Wayne" },
-            { text: "He who is not courageous enough to take risks will accomplish nothing in life.", author: "Muhammad Ali" },
-            { text: "Courage is the first of human qualities because it is the quality which guarantees all others.", author: "Winston Churchill" }
+            { text: "Courage tests your talent.", author: "John C. Maxwell", context: "Courage reveals the true extent of your abilities." },
+            { text: "Courage is not the absence of fear, but the triumph over it.", author: "Nelson Mandela", context: "Courage means acting despite fear, not without it." },
+            { text: "All our dreams can come true if we have the courage to pursue them.", author: "Walt Disney", context: "Courage bridges the gap between dreams and reality." },
+            { text: "You cannot swim for new horizons until you have courage to lose sight of the shore.", author: "William Faulkner", context: "Growth requires the courage to leave your comfort zone." },
+            { text: "Life shrinks or expands in proportion to one's courage.", author: "Anais Nin", context: "Courage determines the size of your life and opportunities." }
         ],
         teachability: [
-            { text: "Teachability expands your talent.", author: "John C. Maxwell" },
-            { text: "The capacity to learn is a gift; the ability to learn is a skill; the willingness to learn is a choice.", author: "Brian Herbert" },
-            { text: "Anyone who stops learning is old, whether at twenty or eighty.", author: "Henry Ford" },
-            { text: "The more that you read, the more things you will know. The more that you learn, the more places you'll go.", author: "Dr. Seuss" },
-            { text: "Education is not the filling of a pail, but the lighting of a fire.", author: "William Butler Yeats" },
-            { text: "The beautiful thing about learning is that nobody can take it away from you.", author: "B.B. King" },
-            { text: "Live as if you were to die tomorrow. Learn as if you were to live forever.", author: "Mahatma Gandhi" },
-            { text: "The expert in anything was once a beginner.", author: "Helen Hayes" },
-            { text: "A wise man can learn more from a foolish question than a fool can learn from a wise answer.", author: "Bruce Lee" },
-            { text: "The only person who is educated is the one who has learned how to learn and change.", author: "Carl Rogers" },
-            { text: "I am always doing that which I cannot do, in order that I may learn how to do it.", author: "Pablo Picasso" },
-            { text: "Learning never exhausts the mind.", author: "Leonardo da Vinci" },
-            { text: "The more I learn, the more I realize how much I don't know.", author: "Albert Einstein" },
-            { text: "Tell me and I forget. Teach me and I remember. Involve me and I learn.", author: "Benjamin Franklin" },
-            { text: "It's what you learn after you know it all that counts.", author: "John Wooden" }
+            { text: "Teachability expands your talent.", author: "John C. Maxwell", context: "A learning mindset multiplies your capabilities." },
+            { text: "The capacity to learn is a gift; the ability to learn is a skill; the willingness to learn is a choice.", author: "Brian Herbert", context: "Teachability is a choice that unlocks continuous growth." },
+            { text: "Anyone who stops learning is old, whether at twenty or eighty.", author: "Henry Ford", context: "Learning keeps you young and adaptable." },
+            { text: "The more I learn, the more I realize how much I don't know.", author: "Albert Einstein", context: "Wisdom begins with recognizing what you don't know." },
+            { text: "It's what you learn after you know it all that counts.", author: "John Wooden", context: "True learning begins when you think you know everything." }
         ],
         character: [
-            { text: "Character protects your talent.", author: "John C. Maxwell" },
-            { text: "Character is power.", author: "Booker T. Washington" },
-            { text: "Be more concerned with your character than your reputation.", author: "John Wooden" },
-            { text: "The true test of a man's character is what he does when no one is watching.", author: "John Wooden" },
-            { text: "Character is doing the right thing when nobody's looking.", author: "J.C. Watts" },
-            { text: "Ability may get you to the top, but it takes character to keep you there.", author: "Zig Ziglar" },
-            { text: "Character cannot be developed in ease and quiet.", author: "Helen Keller" },
-            { text: "The best index to a person's character is how he treats people who can't do him any good.", author: "Abigail Van Buren" },
-            { text: "Weakness of attitude becomes weakness of character.", author: "Albert Einstein" },
-            { text: "Character is simply habit long continued.", author: "Plutarch" },
-            { text: "Nearly all men can stand adversity, but if you want to test a man's character, give him power.", author: "Abraham Lincoln" },
-            { text: "Character is the real foundation of all worthwhile success.", author: "John Hays Hammond" },
-            { text: "Good character is not formed in a week or a month. It is created little by little.", author: "Heraclitus" },
-            { text: "Our character is what we do when we think no one is looking.", author: "H. Jackson Brown Jr." },
-            { text: "Character is destiny.", author: "Heraclitus" }
+            { text: "Character protects your talent.", author: "John C. Maxwell", context: "Character provides the foundation for sustainable success." },
+            { text: "The true test of a man's character is what he does when no one is watching.", author: "John Wooden", context: "Character is who you are when nobody is looking." },
+            { text: "Character is doing the right thing when nobody's looking.", author: "J.C. Watts", context: "Integrity is the cornerstone of lasting achievement." },
+            { text: "Ability may get you to the top, but it takes character to keep you there.", author: "Zig Ziglar", context: "Character sustains success where talent alone cannot." },
+            { text: "Character is the real foundation of all worthwhile success.", author: "John Hays Hammond", context: "Success built on character lasts generations." }
         ],
         relationships: [
-            { text: "Relationships influence your talent.", author: "John C. Maxwell" },
-            { text: "You are the average of the five people you spend the most time with.", author: "Jim Rohn" },
-            { text: "Surround yourself with only people who are going to lift you higher.", author: "Oprah Winfrey" },
-            { text: "The quality of your life is the quality of your relationships.", author: "Tony Robbins" },
-            { text: "If you want to go fast, go alone. If you want to go far, go together.", author: "African Proverb" },
-            { text: "No one can whistle a symphony. It takes a whole orchestra to play it.", author: "H.E. Luccock" },
-            { text: "The meeting of two personalities is like the contact of two chemical substances: if there is any reaction, both are transformed.", author: "Carl Jung" },
-            { text: "Alone we can do so little; together we can do so much.", author: "Helen Keller" },
-            { text: "Great things in business are never done by one person; they're done by a team of people.", author: "Steve Jobs" },
-            { text: "The strength of the team is each individual member. The strength of each member is the team.", author: "Phil Jackson" },
-            { text: "We rise by lifting others.", author: "Robert Ingersoll" },
-            { text: "Teamwork makes the dream work.", author: "John C. Maxwell" },
-            { text: "Coming together is a beginning, staying together is progress, and working together is success.", author: "Henry Ford" },
-            { text: "None of us is as smart as all of us.", author: "Ken Blanchard" },
-            { text: "It is literally true that you can succeed best and quickest by helping others to succeed.", author: "Napoleon Hill" }
+            { text: "Relationships influence your talent.", author: "John C. Maxwell", context: "Success is rarely a solo journey; relationships multiply impact." },
+            { text: "You are the average of the five people you spend the most time with.", author: "Jim Rohn", context: "Choose relationships that elevate and inspire you." },
+            { text: "Surround yourself with only people who are going to lift you higher.", author: "Oprah Winfrey", context: "Relationships should challenge you to become better." },
+            { text: "The quality of your life is the quality of your relationships.", author: "Tony Robbins", context: "Strong relationships create a foundation for fulfillment." },
+            { text: "Alone we can do so little; together we can do so much.", author: "Helen Keller", context: "Collaboration multiplies individual capabilities." }
         ],
         responsibility: [
-            { text: "Responsibility strengthens your talent.", author: "John C. Maxwell" },
-            { text: "The price of greatness is responsibility.", author: "Winston Churchill" },
-            { text: "With great power comes great responsibility.", author: "Voltaire" },
-            { text: "You must take personal responsibility. You cannot change the circumstances, the seasons, or the wind, but you can change yourself.", author: "Jim Rohn" },
-            { text: "In the long run, we shape our lives, and we shape ourselves.", author: "Eleanor Roosevelt" },
-            { text: "The moment you take responsibility for everything in your life is the moment you can change anything in your life.", author: "Hal Elrod" },
-            { text: "Liberty means responsibility. That is why most men dread it.", author: "George Bernard Shaw" },
-            { text: "Success on any major scale requires you to accept responsibility.", author: "Michael Korda" },
-            { text: "You are not only responsible for what you say, but also for what you do not say.", author: "Martin Luther" },
-            { text: "Responsibility is the price of freedom.", author: "Elbert Hubbard" },
-            { text: "Hold yourself responsible for a higher standard than anybody expects of you.", author: "Henry Ward Beecher" },
-            { text: "The willingness to accept responsibility for one's own life is the source from which self-respect springs.", author: "Joan Didion" },
-            { text: "When you blame others, you give up your power to change.", author: "Robert Anthony" },
-            { text: "Peak performance begins with your taking complete responsibility for your life and everything that happens to you.", author: "Brian Tracy" },
-            { text: "Accountability breeds response-ability.", author: "Stephen Covey" }
+            { text: "Responsibility strengthens your talent.", author: "John C. Maxwell", context: "Taking ownership develops character and capability." },
+            { text: "The price of greatness is responsibility.", author: "Winston Churchill", context: "Great achievement requires great responsibility." },
+            { text: "You must take personal responsibility. You cannot change the circumstances, the seasons, or the wind, but you can change yourself.", author: "Jim Rohn", context: "Responsibility is the foundation of personal power." },
+            { text: "The moment you take responsibility for everything in your life is the moment you can change anything in your life.", author: "Hal Elrod", context: "Responsibility is the key to transformation." },
+            { text: "Hold yourself responsible for a higher standard than anybody expects of you.", author: "Henry Ward Beecher", context: "Self-imposed standards drive excellence." }
         ],
         teamwork: [
-            { text: "Teamwork multiplies your talent.", author: "John C. Maxwell" },
-            { text: "Talent wins games, but teamwork and intelligence win championships.", author: "Michael Jordan" },
-            { text: "None of us is as smart as all of us.", author: "Ken Blanchard" },
-            { text: "Individually, we are one drop. Together, we are an ocean.", author: "Ryunosuke Satoro" },
-            { text: "The nice thing about teamwork is that you always have others on your side.", author: "Margaret Carty" },
-            { text: "Many hands make light work.", author: "John Heywood" },
-            { text: "If everyone is moving forward together, then success takes care of itself.", author: "Henry Ford" },
-            { text: "A team is not a group of people who work together. It is a group of people who trust each other.", author: "Simon Sinek" },
-            { text: "It takes two flints to make a fire.", author: "Louisa May Alcott" },
-            { text: "Unity is strength... when there is teamwork and collaboration, wonderful things can be achieved.", author: "Mattie Stepanek" },
-            { text: "The best teamwork comes from men who are working independently toward one goal in unison.", author: "James Cash Penney" },
-            { text: "No individual can win a game by himself.", author: "Pele" },
-            { text: "Find a group of people who challenge and inspire you, spend a lot of time with them, and it will change your life.", author: "Amy Poehler" },
-            { text: "Great teams do not hold back with one another.", author: "Patrick Lencioni" },
-            { text: "Teamwork is the fuel that allows common people to attain uncommon results.", author: "Andrew Carnegie" }
+            { text: "Teamwork multiplies your talent.", author: "John C. Maxwell", context: "Collaboration amplifies individual strengths." },
+            { text: "Talent wins games, but teamwork and intelligence win championships.", author: "Michael Jordan", context: "Team success requires more than individual brilliance." },
+            { text: "Individually, we are one drop. Together, we are an ocean.", author: "Ryunosuke Satoro", context: "Unity creates unstoppable force." },
+            { text: "If everyone is moving forward together, then success takes care of itself.", author: "Henry Ford", context: "Aligned effort produces extraordinary results." },
+            { text: "Teamwork is the fuel that allows common people to attain uncommon results.", author: "Andrew Carnegie", context: "Teamwork transforms ordinary into extraordinary." }
         ]
     };
 
-    // Widget State
-    let state = {
-        currentQuoteIndex: 0,
-        autoRotate: false,
-        currentPrinciple: 'all',
-        currentTheme: 'default',
-        fontSize: 'medium',
-        favorites: [],
-        history: [],
-        viewCount: 0,
-        shareCount: 0,
-        dailyStreak: 0,
-        lastVisit: null,
-        rotationInterval: null
+    // Principle mapping
+    const principleMap = {
+        1: { key: 'belief', title: 'Belief Lifts Your Talent', icon: '💫' },
+        2: { key: 'passion', title: 'Passion Energizes Your Talent', icon: '🔥' },
+        3: { key: 'initiative', title: 'Initiative Activates Your Talent', icon: '🚀' },
+        4: { key: 'focus', title: 'Focus Directs Your Talent', icon: '🎯' },
+        5: { key: 'preparation', title: 'Preparation Positions Your Talent', icon: '📋' },
+        6: { key: 'practice', title: 'Practice Sharpens Your Talent', icon: '⚡' },
+        7: { key: 'perseverance', title: 'Perseverance Sustains Your Talent', icon: '💪' },
+        8: { key: 'courage', title: 'Courage Tests Your Talent', icon: '🦁' },
+        9: { key: 'teachability', title: 'Teachability Expands Your Talent', icon: '📚' },
+        10: { key: 'character', title: 'Character Protects Your Talent', icon: '🛡️' },
+        11: { key: 'relationships', title: 'Relationships Influence Your Talent', icon: '🤝' },
+        12: { key: 'responsibility', title: 'Responsibility Strengthens Your Talent', icon: '⚖️' },
+        13: { key: 'teamwork', title: 'Teamwork Multiplies Your Talent', icon: '👥' }
     };
 
-    // DOM Elements
+    // Widget state
+    let state = {
+        currentQuote: null,
+        currentPrincipleFilter: 'all',
+        currentTheme: 'default',
+        autoRotate: true,
+        rotationInterval: null,
+        favorites: JSON.parse(localStorage.getItem('maxwell-quote-favorites') || '[]'),
+        history: JSON.parse(localStorage.getItem('maxwell-quote-history') || '[]'),
+        stats: JSON.parse(localStorage.getItem('maxwell-quote-stats') || '{"viewed": 0, "shared": 0, "streak": 0, "lastVisit": null}')
+    };
+
+    // DOM elements
     let elements = {};
 
     // Initialize the widget
     function init() {
-        loadState();
         cacheElements();
-        buildQuotesList();
         setupEventListeners();
-        applyTheme(state.currentTheme);
-        applyFontSize(state.fontSize);
-        displayQuote();
+        updateDailyStreak();
+        loadQuote();
         updateStats();
-        checkDailyStreak();
+        updateFavorites();
+        updateHistory();
+        generateEmbedCode();
+        
+        // Start auto-rotation if enabled
+        if (state.autoRotate) {
+            startAutoRotation();
+        }
     }
 
     // Cache DOM elements
     function cacheElements() {
         elements = {
-            quoteText: document.getElementById('quote-text'),
-            quoteAuthor: document.getElementById('quote-author'),
-            quotePrinciple: document.getElementById('quote-principle'),
-            prevBtn: document.getElementById('prev-quote'),
-            nextBtn: document.getElementById('next-quote'),
-            randomBtn: document.getElementById('random-quote'),
-            favoriteBtn: document.getElementById('favorite-quote'),
-            shareBtn: document.getElementById('share-quote'),
-            copyBtn: document.getElementById('copy-quote'),
-            autoRotateToggle: document.getElementById('auto-rotate'),
-            principleFilter: document.getElementById('principle-filter'),
-            themeSelector: document.getElementById('theme-selector'),
-            fontSizeSelector: document.getElementById('font-size'),
-            viewCountSpan: document.getElementById('view-count'),
-            favoriteCountSpan: document.getElementById('favorite-count'),
-            shareCountSpan: document.getElementById('share-count'),
-            streakCountSpan: document.getElementById('streak-count'),
-            embedBtn: document.getElementById('embed-code'),
-            embedModal: document.getElementById('embed-modal'),
-            embedCodeArea: document.getElementById('embed-code-area'),
-            copyEmbedBtn: document.getElementById('copy-embed'),
-            closeEmbedBtn: document.getElementById('close-embed'),
-            shareDropdown: document.getElementById('share-dropdown')
+            // Quote display
+            quoteText: document.getElementById('quoteText'),
+            quoteAuthor: document.getElementById('quoteAuthor'),
+            quoteContext: document.getElementById('quoteContext'),
+            principleIndicator: document.getElementById('principleIndicator'),
+            
+            // Action buttons
+            newQuoteBtn: document.getElementById('newQuoteBtn'),
+            favoriteBtn: document.getElementById('favoriteBtn'),
+            shareBtn: document.getElementById('shareBtn'),
+            copyBtn: document.getElementById('copyBtn'),
+            
+            // Controls
+            principleFilter: document.getElementById('principleFilter'),
+            autoRotateToggle: document.getElementById('autoRotate'),
+            themeSelect: document.getElementById('themeSelect'),
+            fontSizeSlider: document.getElementById('fontSize'),
+            fontSizeValue: document.getElementById('fontSizeValue'),
+            
+            // Stats
+            totalViewed: document.getElementById('totalViewed'),
+            favoriteCount: document.getElementById('favoriteCount'),
+            shareCount: document.getElementById('shareCount'),
+            streakDays: document.getElementById('streakDays'),
+            
+            // Modal and other elements
+            shareModal: document.getElementById('shareModal'),
+            closeShareModal: document.getElementById('closeShareModal'),
+            shareTextArea: document.getElementById('shareTextArea'),
+            embedCode: document.getElementById('embedCode'),
+            copyEmbedBtn: document.getElementById('copyEmbedBtn'),
+            historyList: document.getElementById('historyList'),
+            clearHistoryBtn: document.getElementById('clearHistoryBtn'),
+            favoritesGrid: document.getElementById('favoritesGrid'),
+            noFavorites: document.getElementById('noFavorites'),
+            toast: document.getElementById('toast')
         };
-    }
-
-    // Build quotes list based on current filter
-    function buildQuotesList() {
-        state.quotesList = [];
-        
-        if (state.currentPrinciple === 'all') {
-            // Include all quotes
-            Object.keys(quotesDatabase).forEach(principle => {
-                quotesDatabase[principle].forEach(quote => {
-                    state.quotesList.push({
-                        ...quote,
-                        principle: principle
-                    });
-                });
-            });
-        } else if (state.currentPrinciple === 'favorites') {
-            // Show only favorites
-            state.quotesList = state.favorites;
-        } else {
-            // Show quotes from specific principle
-            state.quotesList = quotesDatabase[state.currentPrinciple].map(quote => ({
-                ...quote,
-                principle: state.currentPrinciple
-            }));
-        }
-        
-        // Reset index if out of bounds
-        if (state.currentQuoteIndex >= state.quotesList.length) {
-            state.currentQuoteIndex = 0;
-        }
     }
 
     // Setup event listeners
     function setupEventListeners() {
-        // Navigation
-        elements.prevBtn.addEventListener('click', () => navigateQuote('prev'));
-        elements.nextBtn.addEventListener('click', () => navigateQuote('next'));
-        elements.randomBtn.addEventListener('click', () => navigateQuote('random'));
-        
-        // Actions
+        // Action buttons
+        elements.newQuoteBtn.addEventListener('click', getNewQuote);
         elements.favoriteBtn.addEventListener('click', toggleFavorite);
-        elements.shareBtn.addEventListener('click', toggleShareDropdown);
+        elements.shareBtn.addEventListener('click', openShareModal);
         elements.copyBtn.addEventListener('click', copyQuote);
         
-        // Settings
-        elements.autoRotateToggle.addEventListener('change', toggleAutoRotate);
+        // Controls
         elements.principleFilter.addEventListener('change', filterByPrinciple);
-        elements.themeSelector.addEventListener('change', changeTheme);
-        elements.fontSizeSelector.addEventListener('change', changeFontSize);
+        elements.autoRotateToggle.addEventListener('change', toggleAutoRotation);
+        elements.themeSelect.addEventListener('change', changeTheme);
+        elements.fontSizeSlider.addEventListener('input', changeFontSize);
         
-        // Embed
-        elements.embedBtn.addEventListener('click', showEmbedModal);
-        elements.copyEmbedBtn.addEventListener('click', copyEmbedCode);
-        elements.closeEmbedBtn.addEventListener('click', hideEmbedModal);
-        
-        // Share options
-        document.getElementById('share-twitter').addEventListener('click', () => shareQuote('twitter'));
-        document.getElementById('share-linkedin').addEventListener('click', () => shareQuote('linkedin'));
-        document.getElementById('share-facebook').addEventListener('click', () => shareQuote('facebook'));
-        document.getElementById('share-email').addEventListener('click', () => shareQuote('email'));
-        
-        // Close share dropdown on outside click
-        document.addEventListener('click', (e) => {
-            if (!elements.shareBtn.contains(e.target) && !elements.shareDropdown.contains(e.target)) {
-                elements.shareDropdown.classList.remove('active');
-            }
+        // Share modal
+        elements.closeShareModal.addEventListener('click', closeShareModal);
+        elements.shareModal.addEventListener('click', (e) => {
+            if (e.target === elements.shareModal) closeShareModal();
         });
         
-        // Keyboard navigation
+        // Share buttons
+        document.getElementById('shareTwitter').addEventListener('click', () => shareToSocial('twitter'));
+        document.getElementById('shareLinkedIn').addEventListener('click', () => shareToSocial('linkedin'));
+        document.getElementById('shareFacebook').addEventListener('click', () => shareToSocial('facebook'));
+        document.getElementById('shareEmail').addEventListener('click', () => shareToSocial('email'));
+        
+        // Embed and history
+        elements.copyEmbedBtn.addEventListener('click', copyEmbedCode);
+        elements.clearHistoryBtn.addEventListener('click', clearHistory);
+        
+        // Keyboard shortcuts
         document.addEventListener('keydown', handleKeyPress);
     }
 
-    // Handle keyboard navigation
-    function handleKeyPress(e) {
-        switch(e.key) {
-            case 'ArrowLeft':
-                navigateQuote('prev');
-                break;
-            case 'ArrowRight':
-                navigateQuote('next');
-                break;
-            case ' ':
-                e.preventDefault();
-                navigateQuote('random');
-                break;
-            case 'f':
-                if (!e.ctrlKey && !e.metaKey) {
-                    toggleFavorite();
-                }
-                break;
-            case 'c':
-                if (!e.ctrlKey && !e.metaKey) {
-                    copyQuote();
-                }
-                break;
-        }
+    // Get a new quote
+    function getNewQuote() {
+        const quotes = getFilteredQuotes();
+        if (quotes.length === 0) return;
+        
+        // Get random quote (different from current)
+        let newQuote;
+        do {
+            newQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        } while (quotes.length > 1 && newQuote === state.currentQuote);
+        
+        state.currentQuote = newQuote;
+        displayQuote();
+        addToHistory();
+        updateStats('viewed');
     }
 
-    // Navigate quotes
-    function navigateQuote(direction) {
-        if (state.quotesList.length === 0) return;
-        
-        switch(direction) {
-            case 'prev':
-                state.currentQuoteIndex = (state.currentQuoteIndex - 1 + state.quotesList.length) % state.quotesList.length;
-                break;
-            case 'next':
-                state.currentQuoteIndex = (state.currentQuoteIndex + 1) % state.quotesList.length;
-                break;
-            case 'random':
-                let newIndex;
-                do {
-                    newIndex = Math.floor(Math.random() * state.quotesList.length);
-                } while (newIndex === state.currentQuoteIndex && state.quotesList.length > 1);
-                state.currentQuoteIndex = newIndex;
-                break;
+    // Get filtered quotes based on current principle filter
+    function getFilteredQuotes() {
+        if (state.currentPrincipleFilter === 'all') {
+            // Return all quotes with principle info
+            const allQuotes = [];
+            Object.keys(quotesDatabase).forEach(key => {
+                const principleNum = Object.keys(principleMap).find(num => principleMap[num].key === key);
+                quotesDatabase[key].forEach(quote => {
+                    allQuotes.push({
+                        ...quote,
+                        principle: parseInt(principleNum),
+                        principleKey: key
+                    });
+                });
+            });
+            return allQuotes;
+        } else {
+            // Return quotes from specific principle
+            const principleKey = principleMap[state.currentPrincipleFilter].key;
+            return quotesDatabase[principleKey].map(quote => ({
+                ...quote,
+                principle: parseInt(state.currentPrincipleFilter),
+                principleKey: principleKey
+            }));
         }
-        
-        displayQuote();
     }
 
     // Display current quote
     function displayQuote() {
-        if (state.quotesList.length === 0) {
-            elements.quoteText.textContent = "No quotes available for the selected filter.";
-            elements.quoteAuthor.textContent = "";
-            elements.quotePrinciple.textContent = "";
+        if (!state.currentQuote) {
+            getNewQuote();
             return;
         }
+
+        const quote = state.currentQuote;
+        const principleInfo = principleMap[quote.principle];
         
-        const quote = state.quotesList[state.currentQuoteIndex];
+        // Update quote content
+        elements.quoteText.textContent = quote.text;
+        elements.quoteAuthor.textContent = `- ${quote.author}`;
+        elements.quoteContext.textContent = quote.context;
         
-        // Fade out
-        elements.quoteText.style.opacity = '0';
-        elements.quoteAuthor.style.opacity = '0';
-        elements.quotePrinciple.style.opacity = '0';
+        // Update principle indicator
+        elements.principleIndicator.innerHTML = `
+            <span class="principle-icon">${principleInfo.icon}</span>
+            <span class="principle-text">Principle ${quote.principle}: ${principleInfo.title}</span>
+        `;
         
-        setTimeout(() => {
-            // Update content
-            elements.quoteText.textContent = `"${quote.text}"`;
-            elements.quoteAuthor.textContent = `— ${quote.author}`;
-            elements.quotePrinciple.textContent = formatPrinciple(quote.principle);
-            
-            // Update favorite button
-            updateFavoriteButton(quote);
-            
-            // Fade in
-            elements.quoteText.style.opacity = '1';
-            elements.quoteAuthor.style.opacity = '1';
-            elements.quotePrinciple.style.opacity = '1';
-            
-            // Update history and stats
-            addToHistory(quote);
-            state.viewCount++;
-            updateStats();
-            saveState();
-        }, 300);
+        // Update favorite button
+        updateFavoriteButton();
+        
+        // Animate quote card
+        const quoteCard = document.getElementById('mainQuoteCard');
+        quoteCard.style.animation = 'none';
+        quoteCard.offsetHeight; // Trigger reflow
+        quoteCard.style.animation = 'fadeIn 0.5s ease';
+    }
+
+    // Load initial quote
+    function loadQuote() {
+        // Load a random quote from Belief principle as default
+        const beliefQuotes = quotesDatabase.belief.map(quote => ({
+            ...quote,
+            principle: 1,
+            principleKey: 'belief'
+        }));
+        state.currentQuote = beliefQuotes[0];
+        displayQuote();
     }
 
     // Toggle favorite
     function toggleFavorite() {
-        const quote = state.quotesList[state.currentQuoteIndex];
-        const favoriteIndex = state.favorites.findIndex(fav => 
-            fav.text === quote.text && fav.author === quote.author
+        if (!state.currentQuote) return;
+        
+        const quoteId = `${state.currentQuote.text}-${state.currentQuote.author}`;
+        const existingIndex = state.favorites.findIndex(fav => 
+            `${fav.text}-${fav.author}` === quoteId
         );
         
-        if (favoriteIndex === -1) {
-            state.favorites.push(quote);
-            elements.favoriteBtn.classList.add('active');
-            showNotification('Added to favorites! ⭐');
+        if (existingIndex >= 0) {
+            // Remove from favorites
+            state.favorites.splice(existingIndex, 1);
+            showToast('Removed from favorites', 'warning');
         } else {
-            state.favorites.splice(favoriteIndex, 1);
-            elements.favoriteBtn.classList.remove('active');
-            showNotification('Removed from favorites');
+            // Add to favorites
+            state.favorites.push(state.currentQuote);
+            showToast('Added to favorites!', 'success');
         }
         
-        updateStats();
+        updateFavoriteButton();
+        updateFavorites();
         saveState();
     }
 
-    // Update favorite button state
-    function updateFavoriteButton(quote) {
-        const isFavorite = state.favorites.some(fav => 
-            fav.text === quote.text && fav.author === quote.author
+    // Update favorite button appearance
+    function updateFavoriteButton() {
+        if (!state.currentQuote) return;
+        
+        const quoteId = `${state.currentQuote.text}-${state.currentQuote.author}`;
+        const isFavorited = state.favorites.some(fav => 
+            `${fav.text}-${fav.author}` === quoteId
         );
         
-        if (isFavorite) {
-            elements.favoriteBtn.classList.add('active');
+        const heartIcon = elements.favoriteBtn.querySelector('i');
+        if (isFavorited) {
+            heartIcon.className = 'fas fa-heart';
+            elements.favoriteBtn.classList.add('favorited');
         } else {
-            elements.favoriteBtn.classList.remove('active');
+            heartIcon.className = 'far fa-heart';
+            elements.favoriteBtn.classList.remove('favorited');
         }
     }
 
-    // Toggle share dropdown
-    function toggleShareDropdown() {
-        elements.shareDropdown.classList.toggle('active');
+    // Open share modal
+    function openShareModal() {
+        if (!state.currentQuote) return;
+        
+        const shareText = `"${state.currentQuote.text}" - ${state.currentQuote.author}\n\nFrom Maxwell's Principle ${state.currentQuote.principle}: ${principleMap[state.currentQuote.principle].title}\n\n#MaxwellQuotes #TalentIsNeverEnough`;
+        
+        elements.shareTextArea.value = shareText;
+        elements.shareModal.classList.add('active');
     }
 
-    // Share quote
-    function shareQuote(platform) {
-        const quote = state.quotesList[state.currentQuoteIndex];
-        const text = `"${quote.text}" — ${quote.author}`;
+    // Close share modal
+    function closeShareModal() {
+        elements.shareModal.classList.remove('active');
+    }
+
+    // Share to social platforms
+    function shareToSocial(platform) {
+        if (!state.currentQuote) return;
+        
+        const text = elements.shareTextArea.value;
         const url = window.location.href;
         
-        let shareUrl;
+        let shareUrl = '';
         
-        switch(platform) {
+        switch (platform) {
             case 'twitter':
                 shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
                 break;
@@ -506,266 +389,322 @@
                 shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`;
                 break;
             case 'email':
-                shareUrl = `mailto:?subject=Inspiring Quote&body=${encodeURIComponent(text + '\n\n' + url)}`;
+                shareUrl = `mailto:?subject=${encodeURIComponent('Inspiring Quote from Maxwell')}&body=${encodeURIComponent(text + '\n\n' + url)}`;
                 break;
         }
         
-        window.open(shareUrl, '_blank');
-        
-        state.shareCount++;
-        updateStats();
-        saveState();
-        
-        elements.shareDropdown.classList.remove('active');
-        showNotification('Quote shared! 🎉');
+        if (shareUrl) {
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+            updateStats('shared');
+            closeShareModal();
+            showToast('Quote shared!', 'success');
+        }
     }
 
-    // Copy quote
-    function copyQuote() {
-        const quote = state.quotesList[state.currentQuoteIndex];
-        const text = `"${quote.text}" — ${quote.author}`;
+    // Copy quote to clipboard
+    async function copyQuote() {
+        if (!state.currentQuote) return;
         
-        navigator.clipboard.writeText(text).then(() => {
-            showNotification('Quote copied to clipboard! 📋');
-        }).catch(err => {
+        const copyText = `"${state.currentQuote.text}" - ${state.currentQuote.author}`;
+        
+        try {
+            await navigator.clipboard.writeText(copyText);
+            showToast('Quote copied to clipboard!', 'success');
+        } catch (err) {
             // Fallback for older browsers
             const textArea = document.createElement('textarea');
-            textArea.value = text;
+            textArea.value = copyText;
             document.body.appendChild(textArea);
             textArea.select();
             document.execCommand('copy');
             document.body.removeChild(textArea);
-            showNotification('Quote copied to clipboard! 📋');
-        });
+            showToast('Quote copied to clipboard!', 'success');
+        }
     }
 
-    // Toggle auto-rotate
-    function toggleAutoRotate() {
+    // Filter quotes by principle
+    function filterByPrinciple() {
+        state.currentPrincipleFilter = elements.principleFilter.value;
+        getNewQuote();
+        saveState();
+    }
+
+    // Toggle auto-rotation
+    function toggleAutoRotation() {
         state.autoRotate = elements.autoRotateToggle.checked;
         
         if (state.autoRotate) {
-            startAutoRotate();
+            startAutoRotation();
         } else {
-            stopAutoRotate();
+            stopAutoRotation();
         }
         
         saveState();
     }
 
     // Start auto-rotation
-    function startAutoRotate() {
-        stopAutoRotate(); // Clear any existing interval
-        state.rotationInterval = setInterval(() => {
-            navigateQuote('next');
-        }, 30000); // 30 seconds
+    function startAutoRotation() {
+        stopAutoRotation(); // Clear any existing interval
+        state.rotationInterval = setInterval(getNewQuote, 30000); // 30 seconds
     }
 
     // Stop auto-rotation
-    function stopAutoRotate() {
+    function stopAutoRotation() {
         if (state.rotationInterval) {
             clearInterval(state.rotationInterval);
             state.rotationInterval = null;
         }
     }
 
-    // Filter by principle
-    function filterByPrinciple() {
-        state.currentPrinciple = elements.principleFilter.value;
-        state.currentQuoteIndex = 0;
-        buildQuotesList();
-        displayQuote();
-        saveState();
-    }
-
     // Change theme
     function changeTheme() {
-        state.currentTheme = elements.themeSelector.value;
-        applyTheme(state.currentTheme);
+        const theme = elements.themeSelect.value;
+        document.body.setAttribute('data-theme', theme);
+        state.currentTheme = theme;
         saveState();
-    }
-
-    // Apply theme
-    function applyTheme(theme) {
-        document.body.className = `theme-${theme}`;
     }
 
     // Change font size
     function changeFontSize() {
-        state.fontSize = elements.fontSizeSelector.value;
-        applyFontSize(state.fontSize);
+        const fontSize = elements.fontSizeSlider.value;
+        elements.fontSizeValue.textContent = fontSize + 'px';
+        document.documentElement.style.setProperty('--quote-font-size', fontSize + 'px');
         saveState();
     }
 
-    // Apply font size
-    function applyFontSize(size) {
-        const sizes = {
-            small: '0.9em',
-            medium: '1em',
-            large: '1.2em',
-            'x-large': '1.4em'
-        };
+    // Handle keyboard shortcuts
+    function handleKeyPress(e) {
+        // Don't interfere with input fields
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
         
-        document.documentElement.style.setProperty('--font-size-multiplier', sizes[size]);
-    }
-
-    // Add to history
-    function addToHistory(quote) {
-        // Remove if already in history
-        state.history = state.history.filter(item => 
-            !(item.text === quote.text && item.author === quote.author)
-        );
-        
-        // Add to beginning
-        state.history.unshift({
-            ...quote,
-            viewedAt: new Date().toISOString()
-        });
-        
-        // Keep only last 50
-        if (state.history.length > 50) {
-            state.history = state.history.slice(0, 50);
+        switch (e.key) {
+            case ' ':
+                e.preventDefault();
+                getNewQuote();
+                break;
+            case 'f':
+                e.preventDefault();
+                toggleFavorite();
+                break;
+            case 'c':
+                e.preventDefault();
+                copyQuote();
+                break;
+            case 's':
+                e.preventDefault();
+                openShareModal();
+                break;
         }
     }
 
-    // Check daily streak
-    function checkDailyStreak() {
-        const today = new Date().toDateString();
-        const lastVisit = state.lastVisit ? new Date(state.lastVisit).toDateString() : null;
+    // Add quote to history
+    function addToHistory() {
+        if (!state.currentQuote) return;
         
-        if (lastVisit === today) {
-            // Already visited today
+        const historyItem = {
+            ...state.currentQuote,
+            timestamp: new Date().toISOString()
+        };
+        
+        // Add to beginning and limit to 10 items
+        state.history.unshift(historyItem);
+        state.history = state.history.slice(0, 10);
+        
+        updateHistory();
+        saveState();
+    }
+
+    // Update history display
+    function updateHistory() {
+        elements.historyList.innerHTML = '';
+        
+        state.history.forEach((item, index) => {
+            const historyItem = document.createElement('div');
+            historyItem.className = 'history-item';
+            historyItem.innerHTML = `
+                <div class="history-quote">"${item.text}"</div>
+                <div class="history-meta">
+                    <span>- ${item.author}</span>
+                    <span>${new Date(item.timestamp).toLocaleDateString()}</span>
+                </div>
+            `;
+            
+            historyItem.addEventListener('click', () => {
+                state.currentQuote = item;
+                displayQuote();
+                showToast('Quote loaded from history', 'info');
+            });
+            
+            elements.historyList.appendChild(historyItem);
+        });
+    }
+
+    // Clear history
+    function clearHistory() {
+        if (confirm('Are you sure you want to clear your quote history?')) {
+            state.history = [];
+            updateHistory();
+            saveState();
+            showToast('History cleared', 'info');
+        }
+    }
+
+    // Update favorites display
+    function updateFavorites() {
+        elements.favoritesGrid.innerHTML = '';
+        
+        if (state.favorites.length === 0) {
+            elements.noFavorites.style.display = 'block';
             return;
         }
         
-        const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
-        const yesterdayStr = yesterday.toDateString();
+        elements.noFavorites.style.display = 'none';
         
-        if (lastVisit === yesterdayStr) {
-            // Visited yesterday, continue streak
-            state.dailyStreak++;
-        } else if (!lastVisit || lastVisit !== today) {
-            // First visit or streak broken
-            state.dailyStreak = 1;
+        state.favorites.forEach((favorite, index) => {
+            const favoriteItem = document.createElement('div');
+            favoriteItem.className = 'favorite-item';
+            favoriteItem.innerHTML = `
+                <div class="favorite-quote">"${favorite.text}"</div>
+                <div class="favorite-author">- ${favorite.author}</div>
+                <button class="remove-favorite" data-index="${index}" title="Remove from favorites">×</button>
+            `;
+            
+            // Add click to load quote
+            favoriteItem.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('remove-favorite')) {
+                    state.currentQuote = favorite;
+                    displayQuote();
+                    showToast('Favorite quote loaded', 'success');
+                }
+            });
+            
+            // Add remove functionality
+            const removeBtn = favoriteItem.querySelector('.remove-favorite');
+            removeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                state.favorites.splice(index, 1);
+                updateFavorites();
+                updateFavoriteButton();
+                saveState();
+                showToast('Removed from favorites', 'warning');
+            });
+            
+            elements.favoritesGrid.appendChild(favoriteItem);
+        });
+    }
+
+    // Update statistics
+    function updateStats(action = null) {
+        if (action === 'viewed') {
+            state.stats.viewed++;
+        } else if (action === 'shared') {
+            state.stats.shared++;
         }
         
-        state.lastVisit = new Date().toISOString();
+        elements.totalViewed.textContent = state.stats.viewed;
+        elements.favoriteCount.textContent = state.favorites.length;
+        elements.shareCount.textContent = state.stats.shared;
+        elements.streakDays.textContent = state.stats.streak;
+        
         saveState();
     }
 
-    // Update statistics display
-    function updateStats() {
-        elements.viewCountSpan.textContent = state.viewCount.toLocaleString();
-        elements.favoriteCountSpan.textContent = state.favorites.length.toLocaleString();
-        elements.shareCountSpan.textContent = state.shareCount.toLocaleString();
-        elements.streakCountSpan.textContent = state.dailyStreak.toLocaleString();
-    }
-
-    // Show embed modal
-    function showEmbedModal() {
-        const embedCode = generateEmbedCode();
-        elements.embedCodeArea.value = embedCode;
-        elements.embedModal.classList.add('active');
-    }
-
-    // Hide embed modal
-    function hideEmbedModal() {
-        elements.embedModal.classList.remove('active');
+    // Update daily streak
+    function updateDailyStreak() {
+        const today = new Date().toDateString();
+        const lastVisit = state.stats.lastVisit;
+        
+        if (lastVisit === today) {
+            // Same day, no change
+            return;
+        }
+        
+        if (lastVisit) {
+            const lastDate = new Date(lastVisit);
+            const todayDate = new Date(today);
+            const daysDiff = Math.floor((todayDate - lastDate) / (1000 * 60 * 60 * 24));
+            
+            if (daysDiff === 1) {
+                // Consecutive day
+                state.stats.streak++;
+            } else if (daysDiff > 1) {
+                // Streak broken
+                state.stats.streak = 1;
+            }
+        } else {
+            // First visit
+            state.stats.streak = 1;
+        }
+        
+        state.stats.lastVisit = today;
+        saveState();
     }
 
     // Generate embed code
     function generateEmbedCode() {
-        const baseUrl = window.location.origin + window.location.pathname;
-        return `<!-- Maxwell Quote Widget -->
-<iframe 
-    src="${baseUrl}" 
-    width="100%" 
-    height="400" 
-    frameborder="0" 
-    style="border: 1px solid #ddd; border-radius: 8px;">
-</iframe>
-<!-- End Maxwell Quote Widget -->`;
+        const embedCode = `<!-- Maxwell Quote Widget -->
+<div id="maxwell-quote-widget" style="font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background: #f9f9f9;">
+    <div style="text-align: center; margin-bottom: 15px;">
+        <strong style="color: #3498db;">💎 Maxwell Quote Widget</strong>
+    </div>
+    <blockquote style="font-style: italic; margin: 0; font-size: 18px; line-height: 1.4; text-align: center;">
+        "${state.currentQuote ? state.currentQuote.text : 'Loading inspirational quote...'}"
+    </blockquote>
+    <div style="text-align: center; margin-top: 10px; font-weight: bold; color: #2c3e50;">
+        - ${state.currentQuote ? state.currentQuote.author : 'John C. Maxwell'}
+    </div>
+    <div style="text-align: center; margin-top: 15px;">
+        <a href="${window.location.href}" target="_blank" style="color: #3498db; text-decoration: none; font-size: 14px;">View More Quotes →</a>
+    </div>
+</div>`;
+        
+        elements.embedCode.textContent = embedCode;
     }
 
     // Copy embed code
-    function copyEmbedCode() {
-        elements.embedCodeArea.select();
-        document.execCommand('copy');
-        showNotification('Embed code copied! 🚀');
+    async function copyEmbedCode() {
+        try {
+            await navigator.clipboard.writeText(elements.embedCode.textContent);
+            showToast('Embed code copied!', 'success');
+        } catch (err) {
+            // Fallback
+            elements.embedCode.select();
+            document.execCommand('copy');
+            showToast('Embed code copied!', 'success');
+        }
     }
 
-    // Show notification
-    function showNotification(message) {
-        const notification = document.createElement('div');
-        notification.className = 'notification';
-        notification.textContent = message;
-        document.body.appendChild(notification);
+    // Show toast notification
+    function showToast(message, type = 'info') {
+        const toast = elements.toast;
+        const icon = toast.querySelector('.toast-icon');
+        const messageEl = toast.querySelector('.toast-message');
         
-        setTimeout(() => {
-            notification.classList.add('show');
-        }, 10);
+        // Set icon based on type
+        const icons = {
+            success: 'fas fa-check',
+            warning: 'fas fa-exclamation-triangle',
+            error: 'fas fa-times',
+            info: 'fas fa-info-circle'
+        };
         
+        icon.className = `toast-icon ${icons[type] || icons.info}`;
+        messageEl.textContent = message;
+        
+        // Show toast
+        toast.classList.add('show');
+        
+        // Hide after 3 seconds
         setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => {
-                document.body.removeChild(notification);
-            }, 300);
+            toast.classList.remove('show');
         }, 3000);
-    }
-
-    // Format principle name
-    function formatPrinciple(principle) {
-        return principle.charAt(0).toUpperCase() + principle.slice(1);
     }
 
     // Save state to localStorage
     function saveState() {
-        const stateToSave = {
-            currentQuoteIndex: state.currentQuoteIndex,
-            autoRotate: state.autoRotate,
-            currentPrinciple: state.currentPrinciple,
-            currentTheme: state.currentTheme,
-            fontSize: state.fontSize,
-            favorites: state.favorites,
-            history: state.history.slice(0, 20), // Save only recent 20
-            viewCount: state.viewCount,
-            shareCount: state.shareCount,
-            dailyStreak: state.dailyStreak,
-            lastVisit: state.lastVisit
-        };
-        
-        try {
-            localStorage.setItem('maxwellQuoteWidget', JSON.stringify(stateToSave));
-        } catch (e) {
-            console.warn('Failed to save state:', e);
-        }
-    }
-
-    // Load state from localStorage
-    function loadState() {
-        try {
-            const savedState = localStorage.getItem('maxwellQuoteWidget');
-            if (savedState) {
-                const parsed = JSON.parse(savedState);
-                Object.assign(state, parsed);
-                
-                // Restore UI state
-                if (elements.autoRotateToggle) {
-                    elements.autoRotateToggle.checked = state.autoRotate;
-                }
-                if (elements.principleFilter) {
-                    elements.principleFilter.value = state.currentPrinciple;
-                }
-                if (elements.themeSelector) {
-                    elements.themeSelector.value = state.currentTheme;
-                }
-                if (elements.fontSizeSelector) {
-                    elements.fontSizeSelector.value = state.fontSize;
-                }
-            }
-        } catch (e) {
-            console.warn('Failed to load state:', e);
-        }
+        localStorage.setItem('maxwell-quote-favorites', JSON.stringify(state.favorites));
+        localStorage.setItem('maxwell-quote-history', JSON.stringify(state.history));
+        localStorage.setItem('maxwell-quote-stats', JSON.stringify(state.stats));
     }
 
     // Initialize when DOM is ready
@@ -774,11 +713,5 @@
     } else {
         init();
     }
-
-    // Cleanup on page unload
-    window.addEventListener('beforeunload', () => {
-        stopAutoRotate();
-        saveState();
-    });
 
 })();
