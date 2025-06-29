@@ -205,8 +205,38 @@
 
         .header-top {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 2rem;
+        }
+
+        .language-toggle {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .lang-btn.active {
+            background: rgba(255,255,255,0.9);
+            color: #667eea;
+            border-color: white;
         }
 
         footer {
@@ -239,9 +269,13 @@
     <div class="container">
         <header>
             <div class="header-top">
+                <div class="language-toggle">
+                    <button class="lang-btn" onclick="toggleLanguage('en')" id="en-btn">🇺🇸 English</button>
+                    <button class="lang-btn" onclick="toggleLanguage('nl')" id="nl-btn">🇳🇱 Nederlands</button>
+                </div>
                 <div class="auth-buttons">
-                    <button class="auth-btn" onclick="authManager.showAuthModal('signin')">Sign In</button>
-                    <button class="auth-btn primary" onclick="authManager.showAuthModal('signup')">Sign Up</button>
+                    <button class="auth-btn" onclick="authManager.showAuthModal('signin')" data-i18n="signin">Sign In</button>
+                    <button class="auth-btn primary" onclick="authManager.showAuthModal('signup')" data-i18n="signup">Sign Up</button>
                 </div>
                 <div class="user-profile">
                     <img class="user-avatar" src="" alt="User Avatar">
@@ -257,15 +291,15 @@
                 </div>
             </div>
             
-            <h1>Teachable</h1>
-            <p class="subtitle">Educational Projects Based on John C. Maxwell's<br>"Talent Is Never Enough"</p>
-            <p class="author">Maximizing Your Potential Through the 13 Principles</p>
+            <h1 data-i18n="teachable">Teachable</h1>
+            <p class="subtitle" data-i18n="subtitle">Educational Projects Based on John C. Maxwell's<br>"Talent Is Never Enough"</p>
+            <p class="author" data-i18n="author">Maximizing Your Potential Through the 13 Principles</p>
             
             <div class="quote">
                 <blockquote>
-                    "The choices people make—not merely the skills they inherit—propel them onto greatness."
+                    <span data-i18n="quote">"The choices people make—not merely the skills they inherit—propel them onto greatness."</span>
                     <br><br>
-                    <strong>- John C. Maxwell</strong>
+                    <strong data-i18n="quote_author">- John C. Maxwell</strong>
                 </blockquote>
             </div>
         </header>
@@ -274,113 +308,113 @@
             <section class="projects">
                 <div class="project-card">
                     <div class="project-icon">🍅</div>
-                    <h2>Talent-Plus Pomodoro Timer</h2>
-                    <p>A productivity timer that integrates all 13 principles from Maxwell's book. Learn a new principle with each focus session while maximizing your productivity.</p>
-                    <a href="pomodoro-timer/index.html" class="btn">Start Timer</a>
+                    <h2 data-i18n="pomodoro_title">Talent-Plus Pomodoro Timer</h2>
+                    <p data-i18n="pomodoro_desc">A productivity timer that integrates all 13 principles from Maxwell's book. Learn a new principle with each focus session while maximizing your productivity.</p>
+                    <a href="pomodoro-timer/index.html" class="btn" data-i18n="pomodoro_btn">Start Timer</a>
                     <br>
-                    <small>✨ Features: Progress tracking, teachability assessment, principle rotation</small>
+                    <small data-i18n="pomodoro_features">✨ Features: Progress tracking, teachability assessment, principle rotation</small>
                 </div>
 
                 <div class="project-card">
                     <div class="project-icon">🌐</div>
-                    <h2>Principles Website</h2>
-                    <p>Comprehensive website showcasing all 13 principles with detailed explanations, practical applications, and actionable insights for personal growth.</p>
-                    <a href="talent-website/index.html" class="btn btn-secondary">Explore Principles</a>
+                    <h2 data-i18n="website_title">Principles Website</h2>
+                    <p data-i18n="website_desc">Comprehensive website showcasing all 13 principles with detailed explanations, practical applications, and actionable insights for personal growth.</p>
+                    <a href="talent-website/index.html" class="btn btn-secondary" data-i18n="website_btn">Explore Principles</a>
                     <br>
-                    <small>📚 Includes: Detailed chapters, quotes, and implementation guides</small>
+                    <small data-i18n="website_features">📚 Includes: Detailed chapters, quotes, and implementation guides</small>
                 </div>
 
                 <div class="project-card">
                     <div class="project-icon">🎯</div>
-                    <h2>Complete Talent Assessment</h2>
-                    <p>Comprehensive 65-question assessment evaluating your strength across all 13 Maxwell principles with personalized recommendations and action plans.</p>
-                    <a href="assessment-tool/index.html" class="btn">Take Assessment</a>
+                    <h2 data-i18n="assessment_title">Complete Talent Assessment</h2>
+                    <p data-i18n="assessment_desc">Comprehensive 65-question assessment evaluating your strength across all 13 Maxwell principles with personalized recommendations and action plans.</p>
+                    <a href="assessment-tool/index.html" class="btn" data-i18n="assessment_btn">Take Assessment</a>
                     <br>
-                    <small>📊 Features: Detailed scoring, growth recommendations, downloadable results</small>
+                    <small data-i18n="assessment_features">📊 Features: Detailed scoring, growth recommendations, downloadable results</small>
                 </div>
 
                 <div class="project-card">
                     <div class="project-icon">🎲</div>
-                    <h2>Daily Challenge Generator</h2>
-                    <p>Get personalized daily challenges based on Maxwell's principles. Build habits, earn points, unlock achievements, and track your growth journey.</p>
-                    <a href="challenge-generator/index.html" class="btn btn-tertiary">Get Challenge</a>
+                    <h2 data-i18n="challenge_title">Daily Challenge Generator</h2>
+                    <p data-i18n="challenge_desc">Get personalized daily challenges based on Maxwell's principles. Build habits, earn points, unlock achievements, and track your growth journey.</p>
+                    <a href="challenge-generator/index.html" class="btn btn-tertiary" data-i18n="challenge_btn">Get Challenge</a>
                     <br>
-                    <small>🏆 Features: 390+ challenges, gamification, streak tracking, social sharing</small>
+                    <small data-i18n="challenge_features">🏆 Features: 390+ challenges, gamification, streak tracking, social sharing</small>
                 </div>
 
                 <div class="project-card">
                     <div class="project-icon">📈</div>
-                    <h2>Personal Growth Tracker</h2>
-                    <p>Advanced tracking system for habits, goals, and progress across all 13 principles with analytics, insights, and comprehensive reporting.</p>
-                    <a href="growth-tracker/index.html" class="btn">Track Progress</a>
+                    <h2 data-i18n="growth_title">Personal Growth Tracker</h2>
+                    <p data-i18n="growth_desc">Advanced tracking system for habits, goals, and progress across all 13 principles with analytics, insights, and comprehensive reporting.</p>
+                    <a href="growth-tracker/index.html" class="btn" data-i18n="growth_btn">Track Progress</a>
                     <br>
-                    <small>📊 Features: Daily tracking, goal setting, analytics dashboard, export reports</small>
+                    <small data-i18n="growth_features">📊 Features: Daily tracking, goal setting, analytics dashboard, export reports</small>
                 </div>
 
                 <div class="project-card">
                     <div class="project-icon">💎</div>
-                    <h2>Maxwell Quote Widget</h2>
-                    <p>Daily inspiration with 130+ quotes from Maxwell and leadership experts. Features favorites, sharing, themes, and auto-rotation for constant motivation.</p>
-                    <a href="quote-widget/index.html" class="btn btn-quaternary">Get Inspired</a>
+                    <h2 data-i18n="quote_widget_title">Maxwell Quote Widget</h2>
+                    <p data-i18n="quote_widget_desc">Daily inspiration with 130+ quotes from Maxwell and leadership experts. Features favorites, sharing, themes, and auto-rotation for constant motivation.</p>
+                    <a href="quote-widget/index.html" class="btn btn-quaternary" data-i18n="quote_widget_btn">Get Inspired</a>
                     <br>
-                    <small>✨ Features: 130+ quotes, 5 themes, favorites system, social sharing</small>
+                    <small data-i18n="quote_widget_features">✨ Features: 130+ quotes, 5 themes, favorites system, social sharing</small>
                 </div>
             </section>
 
             <section class="principles-preview">
-                <h2>The 13 Talent-Plus Principles</h2>
+                <h2 data-i18n="principles_title">The 13 Talent-Plus Principles</h2>
                 <div class="principles-grid">
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 1</div>
-                        <div class="principle-title">Belief Lifts Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_1">Belief Lifts Your Talent</div>
                     </div>
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 2</div>
-                        <div class="principle-title">Passion Energizes Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_2">Passion Energizes Your Talent</div>
                     </div>
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 3</div>
-                        <div class="principle-title">Initiative Activates Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_3">Initiative Activates Your Talent</div>
                     </div>
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 4</div>
-                        <div class="principle-title">Focus Directs Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_4">Focus Directs Your Talent</div>
                     </div>
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 5</div>
-                        <div class="principle-title">Preparation Positions Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_5">Preparation Positions Your Talent</div>
                     </div>
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 6</div>
-                        <div class="principle-title">Practice Sharpens Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_6">Practice Sharpens Your Talent</div>
                     </div>
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 7</div>
-                        <div class="principle-title">Perseverance Sustains Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_7">Perseverance Sustains Your Talent</div>
                     </div>
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 8</div>
-                        <div class="principle-title">Courage Tests Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_8">Courage Tests Your Talent</div>
                     </div>
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 9</div>
-                        <div class="principle-title">Teachability Expands Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_9">Teachability Expands Your Talent</div>
                     </div>
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 10</div>
-                        <div class="principle-title">Character Protects Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_10">Character Protects Your Talent</div>
                     </div>
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 11</div>
-                        <div class="principle-title">Relationships Influence Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_11">Relationships Influence Your Talent</div>
                     </div>
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 12</div>
-                        <div class="principle-title">Responsibility Strengthens Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_12">Responsibility Strengthens Your Talent</div>
                     </div>
                     <div class="principle-item">
                         <div class="principle-number">PRINCIPLE 13</div>
-                        <div class="principle-title">Teamwork Multiplies Your Talent</div>
+                        <div class="principle-title" data-i18n="principle_13">Teamwork Multiplies Your Talent</div>
                     </div>
                 </div>
             </section>
@@ -388,24 +422,51 @@
             <div class="github-link">
                 <a href="https://github.com/mahavak/teachable" class="github-btn" target="_blank">
                     <span>⭐</span>
-                    View Source Code on GitHub
+                    <span data-i18n="github_btn">View Source Code on GitHub</span>
                 </a>
             </div>
         </main>
 
         <footer>
-            <p>Based on "Talent Is Never Enough" by John C. Maxwell</p>
-            <p><em>"Everything we know we learned from someone else!"</em></p>
+            <p data-i18n="footer_based">Based on "Talent Is Never Enough" by John C. Maxwell</p>
+            <p><em data-i18n="footer_quote">"Everything we know we learned from someone else!"</em></p>
         </footer>
     </div>
 
     <script type="module">
-        // Import authentication and dashboard modules
+        // Import authentication, dashboard, and i18n modules
         import authManager from './js/auth-manager.js';
         import userDashboard from './js/dashboard.js';
+        import i18n from './js/i18n.js';
         
-        // Make authManager globally available
+        // Make modules globally available
         window.authManager = authManager;
+        window.i18n = i18n;
+        
+        // Language toggle function
+        window.toggleLanguage = function(lang) {
+            i18n.setLanguage(lang);
+            updateLanguageButtons();
+        };
+        
+        // Update language button states
+        function updateLanguageButtons() {
+            const currentLang = i18n.getCurrentLanguage();
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(currentLang + '-btn').classList.add('active');
+        }
+        
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', async function() {
+            updateLanguageButtons();
+            i18n.updatePage();
+            
+            // Initialize user's preferred language if logged in
+            await i18n.initializeUserLanguage();
+            updateLanguageButtons();
+        });
         
         // Add some interactive animations
         document.addEventListener('DOMContentLoaded', function() {

@@ -478,11 +478,133 @@ export const utils = {
   }
 }
 
+// Language and translation support
+export const i18nDb = {
+  // Get translation from database
+  async getTranslation(key, languageCode = 'en') {
+    const { data, error } = await supabase
+      .rpc('get_translation', {
+        p_key: key,
+        p_language_code: languageCode
+      })
+    
+    if (error) {
+      console.warn('Translation fetch error:', error)
+      return key // Return key as fallback
+    }
+    
+    return data || key
+  },
+
+  // Get principle translation
+  async getPrincipleTranslation(principleId, languageCode = 'en') {
+    const { data, error } = await supabase
+      .rpc('get_principle_translation', {
+        p_principle_id: principleId,
+        p_language_code: languageCode
+      })
+    
+    if (error) {
+      console.warn('Principle translation fetch error:', error)
+      return null
+    }
+    
+    return data && data.length > 0 ? data[0] : null
+  },
+
+  // Get all principle translations for a language
+  async getAllPrincipleTranslations(languageCode = 'en') {
+    const { data, error } = await supabase
+      .from('principle_translations')
+      .select('*')
+      .eq('language_code', languageCode)
+      .order('principle_id')
+    
+    return { data, error }
+  },
+
+  // Get challenge translation
+  async getChallengeTranslation(challengeId, languageCode = 'en') {
+    const { data, error } = await supabase
+      .from('challenge_translations')
+      .select('*')
+      .eq('challenge_id', challengeId)
+      .eq('language_code', languageCode)
+      .single()
+    
+    if (error && error.code === 'PGRST116') {
+      // No translation found, try English fallback
+      const { data: fallback, error: fallbackError } = await supabase
+        .from('challenge_translations')
+        .select('*')
+        .eq('challenge_id', challengeId)
+        .eq('language_code', 'en')
+        .single()
+      
+      return { data: fallback, error: fallbackError }
+    }
+    
+    return { data, error }
+  },
+
+  // Get quote translation
+  async getQuoteTranslation(quoteId, languageCode = 'en') {
+    const { data, error } = await supabase
+      .from('quote_translations')
+      .select('*')
+      .eq('quote_id', quoteId)
+      .eq('language_code', languageCode)
+      .single()
+    
+    if (error && error.code === 'PGRST116') {
+      // No translation found, try English fallback
+      const { data: fallback, error: fallbackError } = await supabase
+        .from('quote_translations')
+        .select('*')
+        .eq('quote_id', quoteId)
+        .eq('language_code', 'en')
+        .single()
+      
+      return { data: fallback, error: fallbackError }
+    }
+    
+    return { data, error }
+  },
+
+  // Update user's preferred language
+  async updateUserLanguage(userId, languageCode) {
+    const { data, error } = await supabase
+      .from('profiles')
+      .update({ preferred_language: languageCode })
+      .eq('id', userId)
+      .select()
+      .single()
+    
+    return { data, error }
+  },
+
+  // Get user's preferred language
+  async getUserLanguage(userId) {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('preferred_language')
+      .eq('id', userId)
+      .single()
+    
+    if (error) {
+      return 'en' // Default to English
+    }
+    
+    return data?.preferred_language || 'en'
+  }
+}
+
 // Export everything
 export default {
   supabase,
   auth,
   db,
   realtime,
-  utils
+  utils,
+  i18nDb
 }
