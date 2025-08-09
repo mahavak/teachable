@@ -69,7 +69,36 @@ class I18n {
                 // Footer
                 'footer_based': 'Based on "Talent Is Never Enough" by John C. Maxwell',
                 'footer_quote': '"Everything we know we learned from someone else!"',
-                'github_btn': 'View Source Code on GitHub'
+                'github_btn': 'View Source Code on GitHub',
+
+                // Talent Website
+                'talent_website_title': 'Talent Is Never Enough',
+                'talent_website_subtitle': 'Discover the 13 Choices That Will Take You Beyond Your Talent',
+                'talent_website_author': 'by John C. Maxwell',
+                'talent_website_quote': '"The choices people make—not merely the skills they inherit—propel them onto greatness."',
+                'talent_website_cta': 'Explore the 13 Principles',
+                'talent_website_intro_title': 'Transform from Talent to Talent-Plus',
+                'talent_website_intro_p1': 'New York Times best-selling author Dr. John C. Maxwell reveals that talent alone is never enough. Some talented people reach their full potential, while others self-destruct or remain trapped in mediocrity. What makes the difference?',
+                'talent_website_intro_p2': 'Maxwell shares thirteen crucial choices that can transform anyone from having talent alone to becoming a "talent-plus" person who truly stands out.',
+                'talent_website_principles_title': 'The 13 Principles',
+                'principle_1_desc': 'The foundation of achievement starts with believing in yourself and your abilities.',
+                'principle_2_desc': 'Passionate people have the energy and grit to go the extra mile.',
+                'principle_3_desc': 'Nothing happens without taking the first step and making things happen.',
+                'principle_4_desc': 'Concentration on specific goals channels your abilities in the right direction.',
+                'principle_5_desc': 'Proper preparation sets you up for success when opportunities arise.',
+                'principle_6_desc': 'Deliberate practice continuously improves and refines your abilities.',
+                'principle_7_desc': 'Persistence through obstacles keeps you moving toward your goals.',
+                'principle_8_desc': 'Bravery in the face of challenges reveals the true extent of your abilities.',
+                'principle_9_desc': 'A continuous learning mindset opens doors to unlimited growth.',
+                'principle_10_desc': 'Strong character serves as the foundation that protects your abilities.',
+                'principle_11_desc': 'The connections you build significantly impact your potential for success.',
+                'principle_12_desc': 'Taking ownership and accountability enhances your capabilities.',
+                'principle_13_desc': 'Collaboration with others exponentially increases what you can achieve.',
+                'principle_learn_more': 'Learn More',
+                'talent_website_about_title': 'About John C. Maxwell',
+                'talent_website_about_p1': 'John C. Maxwell is a #1 New York Times bestselling author, coach, and speaker who has sold more than 21 million books in fifty languages. He has been identified as the #1 leader in business by the American Management Association® and the most influential leadership expert in the world by Business Insider and Inc. magazine.',
+                'talent_website_about_p2': 'As the founder of The John Maxwell Company, The John Maxwell Team, and EQUIP, his organizations have trained more than 5 million leaders worldwide.',
+                'talent_website_footer': '&copy; 2024 Talent Is Never Enough Website. Educational purposes based on John C. Maxwell\'s work.'
             },
             
             nl: {
@@ -133,7 +162,36 @@ class I18n {
                 // Footer
                 'footer_based': 'Gebaseerd op "Talent Is Never Enough" door John C. Maxwell',
                 'footer_quote': '"Alles wat we weten hebben we van iemand anders geleerd!"',
-                'github_btn': 'Bekijk Broncode op GitHub'
+                'github_btn': 'Bekijk Broncode op GitHub',
+
+                // Talent Website
+                'talent_website_title': 'Talent Is Nooit Genoeg',
+                'talent_website_subtitle': 'Ontdek de 13 keuzes die je voorbij je talent brengen',
+                'talent_website_author': 'door John C. Maxwell',
+                'talent_website_quote': '"De keuzes die mensen maken - niet alleen de vaardigheden die ze erven - stuwen hen naar grootsheid."',
+                'talent_website_cta': 'Verken de 13 principes',
+                'talent_website_intro_title': 'Transformeer van talent naar talent-plus',
+                'talent_website_intro_p1': 'New York Times best-selling auteur Dr. John C. Maxwell onthult dat talent alleen nooit genoeg is. Sommige getalenteerde mensen bereiken hun volledige potentieel, terwijl anderen zichzelf vernietigen of gevangen blijven in middelmatigheid. Wat maakt het verschil?',
+                'talent_website_intro_p2': 'Maxwell deelt dertien cruciale keuzes die iedereen kunnen transformeren van alleen talent hebben naar een "talent-plus" persoon die er echt uitspringt.',
+                'talent_website_principles_title': 'De 13 Principes',
+                'principle_1_desc': 'De basis van prestatie begint met geloof in jezelf en je capaciteiten.',
+                'principle_2_desc': 'Gepassioneerde mensen hebben de energie en de moed om een stap verder te gaan.',
+                'principle_3_desc': 'Er gebeurt niets zonder de eerste stap te zetten en dingen te laten gebeuren.',
+                'principle_4_desc': 'Concentratie op specifieke doelen stuurt je vaardigheden in de juiste richting.',
+                'principle_5_desc': 'Een goede voorbereiding positioneert je voor succes wanneer kansen zich voordoen.',
+                'principle_6_desc': 'Doelbewuste oefening verbetert en verfijnt je vaardigheden voortdurend.',
+                'principle_7_desc': 'Doorzettingsvermogen door obstakels heen houdt je op weg naar je doelen.',
+                'principle_8_desc': 'Moed in het aangezicht van uitdagingen onthult de ware omvang van je capaciteiten.',
+                'principle_9_desc': 'Een mentaliteit van continu leren opent deuren naar onbeperkte groei.',
+                'principle_10_desc': 'Een sterk karakter dient als de basis die je vaardigheden beschermt.',
+                'principle_11_desc': 'De connecties die je opbouwt, beïnvloeden je potentieel voor succes aanzienlijk.',
+                'principle_12_desc': 'Het nemen van eigendom en verantwoordelijkheid verbetert je capaciteiten.',
+                'principle_13_desc': 'Samenwerking met anderen vermenigvuldigt exponentieel wat je kunt bereiken.',
+                'principle_learn_more': 'Lees Meer',
+                'talent_website_about_title': 'Over John C. Maxwell',
+                'talent_website_about_p1': 'John C. Maxwell is een #1 New York Times bestsellerauteur, coach en spreker die meer dan 21 miljoen boeken heeft verkocht in vijftig talen. Hij is geïdentificeerd als de #1 leider in het bedrijfsleven door de American Management Association® en de meest invloedrijke leiderschapsexpert ter wereld door Business Insider en Inc. magazine.',
+                'talent_website_about_p2': 'Als oprichter van The John Maxwell Company, The John Maxwell Team en EQUIP hebben zijn organisaties wereldwijd meer dan 5 miljoen leiders opgeleid.',
+                'talent_website_footer': '&copy; 2024 Talent Is Nooit Genoeg Website. Educatieve doeleinden gebaseerd op het werk van John C. Maxwell.'
             }
         };
     }

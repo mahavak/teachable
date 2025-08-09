@@ -17,6 +17,10 @@
                     <li><a href="../index.html#principles">Principles</a></li>
                     <li><a href="../index.html#about">About</a></li>
                 </ul>
+                <div class="language-toggle">
+                    <button class="lang-btn" onclick="toggleLanguage('en')" id="en-btn">🇺🇸 English</button>
+                    <button class="lang-btn" onclick="toggleLanguage('nl')" id="nl-btn">🇳🇱 Nederlands</button>
+                </div>
             </div>
         </nav>
     </header>
@@ -264,5 +268,36 @@
             <p>&copy; 2024 Talent Is Never Enough Website. Educational purposes based on John C. Maxwell's work.</p>
         </div>
     </footer>
+    <script type="module">
+        // Import i18n module
+        import i18n from '../../js/i18n.js';
+
+        // Make globally available
+        window.i18n = i18n;
+
+        // Language toggle function
+        window.toggleLanguage = async function(lang) {
+            await i18n.setLanguage(lang);
+            updateLanguageButtons();
+        };
+
+        // Update language button states
+        function updateLanguageButtons() {
+            const currentLang = i18n.getCurrentLanguage();
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const activeBtn = document.getElementById(currentLang + '-btn');
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateLanguageButtons();
+            i18n.updatePage();
+        });
+    </script>
 </body>
 </html>
