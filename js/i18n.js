@@ -72,6 +72,9 @@ class I18n {
                 'github_btn': 'View Source Code on GitHub',
 
                 // Talent Website
+                'nav_home': 'Home',
+                'nav_principles': 'Principles',
+                'nav_about': 'About',
                 'talent_website_title': 'Talent Is Never Enough',
                 'talent_website_subtitle': 'Discover the 13 Choices That Will Take You Beyond Your Talent',
                 'talent_website_author': 'by John C. Maxwell',
@@ -165,6 +168,9 @@ class I18n {
                 'github_btn': 'Bekijk Broncode op GitHub',
 
                 // Talent Website
+                'nav_home': 'Thuis',
+                'nav_principles': 'Principes',
+                'nav_about': 'Over',
                 'talent_website_title': 'Talent Is Nooit Genoeg',
                 'talent_website_subtitle': 'Ontdek de 13 keuzes die je voorbij je talent brengen',
                 'talent_website_author': 'door John C. Maxwell',
